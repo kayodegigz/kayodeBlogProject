@@ -6,6 +6,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,7 +25,7 @@ public class Post {
     private String title;
     private String url;
 
-    @Lob //Make the text more than varchar(250)
+    @Lob
     @Column(nullable = false)
     private String content;
     private String shortDescription;
@@ -33,4 +35,11 @@ public class Post {
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
+    @ManyToOne
+    @JoinColumn(name = "created_by", nullable = false)
+    private User createdBy;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private Set<Comment> comments = new HashSet<>();
 }
