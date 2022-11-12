@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "comments")
 public class Comment {
 
-    @Id
+    @Id // defines as primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)

@@ -40,6 +40,11 @@ public class Post {
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
 
+
+    //mappedBy value is in the comment entity. This is what maps the relationships
+    // Cascade is used in the sense that whatever happens in this entity should also happen
+    // to all other entities dependent on it, so if this post is deleted, all the comments
+    // under it should be deleted too
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     private Set<Comment> comments = new HashSet<>();
 }
