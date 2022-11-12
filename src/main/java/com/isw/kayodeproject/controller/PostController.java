@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    private PostService postService;
+    private PostService postService; //the controller talks to the service and not the repo directly
     private CommentService commentService;
 
     public PostController(PostService postService, CommentService commentService) {
@@ -36,7 +36,7 @@ public class PostController {
     }
 
     // handler method to handle list comments request
-    @GetMapping("/admin/posts/comments")
+    @GetMapping("/admin/posts/comments") // this is an endpoint
     public String postComments(Model model){
         String role = SecurityUtils.getRole();
         List<CommentDto> comments = null;
@@ -50,7 +50,7 @@ public class PostController {
     }
 
     // handler method to handle delete comment request
-    @GetMapping("/admin/posts/comments/{commentId}")
+    @GetMapping("/admin/posts/comments/{commentId}") // this is another endpoint, they are all endpoints!
     public String deleteComment(@PathVariable("commentId") Long commentId){
         commentService.deleteComment(commentId);
         return "redirect:/admin/posts/comments";
@@ -66,13 +66,16 @@ public class PostController {
 
     // handler method to handle form submit request
     @PostMapping("/admin/posts")
+    //@ModelAttribute maps the input from the form to @the Model
     public String createPost(@Valid @ModelAttribute("post") PostDto postDto,
                              BindingResult result,
                              Model model){
         if(result.hasErrors()){
             model.addAttribute("post", postDto);
-            return "admin/create_post";
+            return "admin/create_post"; // If an error occurred, show the create post page again
         }
+        //  setter method for url attr of postdto
+        // and getUrl is defined below
         postDto.setUrl(getUrl(postDto.getTitle()));
         postService.createPost(postDto);
         return "redirect:/admin/posts";

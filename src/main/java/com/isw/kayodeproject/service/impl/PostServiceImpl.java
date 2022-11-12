@@ -4,6 +4,7 @@ import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.entity.Post;
 import com.isw.kayodeproject.mapper.PostMapper;
 import com.isw.kayodeproject.repository.PostRepository;
+import com.isw.kayodeproject.service.PostService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

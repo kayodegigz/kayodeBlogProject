@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
+    //this talks to the db directly, see the @query annotation
+
     Optional<Post> findByUrl(String url);
+
+
 
     @Query("SELECT p from Post p WHERE " +
             " p.title LIKE CONCAT('%', :query, '%') OR " +
