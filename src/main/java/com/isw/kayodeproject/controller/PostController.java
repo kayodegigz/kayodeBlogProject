@@ -125,7 +125,7 @@ public class PostController {
     }
 
     // handler method to handle search blog posts request
-    // localhost:8080/admin/posts/search?query=java
+    // localhost:8080/admin/posts/search?query=java(for example)
     @GetMapping("/admin/posts/search")
     public String searchPosts(@RequestParam(value = "query") String query,
                               Model model){

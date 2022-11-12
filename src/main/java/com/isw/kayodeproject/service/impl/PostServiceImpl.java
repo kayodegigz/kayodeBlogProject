@@ -51,7 +51,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto findPostById(Long postId) {
+        //postRepository is the db
         Post post = postRepository.findById(postId).get();
+
+        //this method returns a postDto type so the post type gotten
+        // from the db has to be converted
         return PostMapper.mapToPostDto(post);
     }
 
@@ -71,6 +75,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto findPostByUrl(String postUrl) {
+
+        //from the repo we get a post object
         Post post = postRepository.findByUrl(postUrl).get();
         return PostMapper.mapToPostDto(post);
     }

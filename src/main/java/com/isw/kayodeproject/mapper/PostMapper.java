@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class PostMapper {
 
-    // convert Post entity to PostDto
+    // convert Post entity to PostDto so it can be displayed on the view
     public static PostDto mapToPostDto(Post post){
         return PostDto.builder()
                 .id(post.getId())
@@ -23,7 +23,7 @@ public class PostMapper {
                 .build();
     }
 
-    // convert  Postdto to Post entity
+    // convert  Postdto to Post entity so it can be stored in the db
     public static Post mapToPost(PostDto postDto){
         return Post.builder()
                 .id(postDto.getId())
