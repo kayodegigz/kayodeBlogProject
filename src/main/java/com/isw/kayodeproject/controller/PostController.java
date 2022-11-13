@@ -23,6 +23,11 @@ public class PostController {
         this.commentService = commentService;
     }
 
+    @GetMapping("/")
+    public String landingPage(Model model) {
+        return "/genericContent/index.html";
+    }
+
     // create handler method, GET request and return model and view
     @GetMapping("/admin/posts")
     public String posts(Model model){
