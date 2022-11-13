@@ -1,5 +1,6 @@
 package com.isw.kayodeproject.controller;
 
+import com.isw.kayodeproject.dto.CommentDto;
 import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.service.PostService;
 import org.springframework.stereotype.Controller;
