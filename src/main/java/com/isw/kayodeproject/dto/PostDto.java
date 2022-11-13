@@ -25,5 +25,5 @@ public class PostDto {
     private String shortDescription;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
-    private Set<CommentDto> comments;
+    private Set<CommentDto> comments; //set of commentDto objects to be displayed
 }

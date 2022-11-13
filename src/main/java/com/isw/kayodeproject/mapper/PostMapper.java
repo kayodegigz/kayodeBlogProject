@@ -19,11 +19,11 @@ public class PostMapper {
                 .updatedOn(post.getUpdatedOn())
                 .comments(post.getComments().stream()
                         .map((comment) -> CommentMapper.mapToCommentDto(comment))
-                        .collect(Collectors.toSet()))
+                        .collect(Collectors.toSet())) // .toSet method collects the result in a set
                 .build();
     }
 
-    // convert  Postdto to Post entity so it can be stored in the db
+    // convert  PostDto to Post entity, so it can be stored in the db
     public static Post mapToPost(PostDto postDto){
         return Post.builder()
                 .id(postDto.getId())
