@@ -20,7 +20,7 @@ public class Post {
 
     @Id
     //Implement uuid here
-    private Long id;
+    private String id;
     @Column(nullable = false)
     private String title;
     private String url;
@@ -37,8 +37,8 @@ public class Post {
     private LocalDateTime updatedOn;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", nullable = false)
-    private User createdBy;
+    @JoinColumn(name = "created_by", referencedColumnName = "userName", nullable = false)
+    private User createdBy;  // how will I map this to author?
 
 
     //mappedBy value is in the comment entity. This is what maps the relationships

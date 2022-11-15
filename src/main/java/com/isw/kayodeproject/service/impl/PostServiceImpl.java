@@ -5,6 +5,7 @@ import com.isw.kayodeproject.entity.Post;
 import com.isw.kayodeproject.mapper.PostMapper;
 import com.isw.kayodeproject.repository.PostRepository;
 import com.isw.kayodeproject.service.PostService;
+import com.isw.kayodeproject.util.IdGenerator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
+    private IdGenerator idGenerator;
     private PostRepository postRepository;
     private UserRepository userRepository;
 
-    public PostServiceImpl(PostRepository postRepository,
-                           UserRepository userRepository) {
+    public PostServiceImpl(IdGenerator idGenerator, PostRepository postRepository, UserRepository userRepository) {
+        this.idGenerator = idGenerator;
         this.postRepository = postRepository;
         this.userRepository = userRepository;
     }
@@ -25,7 +27,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> findAllPosts() {
         List<Post> posts = postRepository.findAll();
-        return posts.stream().map(PostMapper::mapToPostDto)
+        return posts.stream().map(PostMapper::mapToPostDto) // same as <<map((post) -> PostMapper.mapToPostDto(post))>>
                 .collect(Collectors.toList());
     }
 
@@ -44,6 +46,8 @@ public class PostServiceImpl implements PostService {
     public void createPost(PostDto postDto) {
         String email = SecurityUtils.getCurrentUser().getUsername();
         User user = userRepository.findByEmail(email);
+        String id = idGenerator.createId();
+        postDto.setId(id);
         Post post = PostMapper.mapToPost(postDto);
         post.setCreatedBy(user);
         postRepository.save(post);

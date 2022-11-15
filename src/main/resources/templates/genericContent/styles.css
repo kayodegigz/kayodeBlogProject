@@ -100,17 +100,17 @@ body {
     padding: 1rem 2rem;
     font-weight: bold;
     font-size: 1.1rem;
-    color: #ffffff;
-    border: none;
+    color: var(--color-primary-dark);
+    border: solid 1px var(--color-primary-dark);
     border-radius: var(--border-radius);
     outline: none;
     cursor: pointer;
-    background: var(--color-primary);
+    background: #ffffff;
 }
 
 .form__button:hover {
-    background: #ffffff;
-    color: var(--color-primary-dark);
+    background: var(--color-primary);
+    color: #ffffff;
     border: solid 1px var(--color-primary-dark);
     transition: 0.4s;
 }

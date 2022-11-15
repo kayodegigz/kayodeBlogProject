@@ -14,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostDto {
-    private Long id;
+    private String id;
     // adds the not empty validation
     @NotEmpty(message = "Post title should not be empty")
     private String title;
@@ -26,4 +26,5 @@ public class PostDto {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     private Set<CommentDto> comments; //set of commentDto objects to be displayed
+    private User createdBy; // or useerdto?
 }
