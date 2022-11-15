@@ -3,9 +3,11 @@ package com.isw.kayodeproject.service.impl;
 import com.isw.kayodeproject.dto.CommentDto;
 import com.isw.kayodeproject.entity.Comment;
 import com.isw.kayodeproject.entity.Post;
+import com.isw.kayodeproject.entity.User;
 import com.isw.kayodeproject.mapper.CommentMapper;
 import com.isw.kayodeproject.repository.CommentRepository;
 import com.isw.kayodeproject.repository.PostRepository;
+import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.CommentService;
 import org.springframework.stereotype.Service;
 

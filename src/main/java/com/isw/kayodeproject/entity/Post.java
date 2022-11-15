@@ -19,8 +19,9 @@ import java.util.Set;
 public class Post {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Implement uuid here
-    private String id;
+    private Long id;
     @Column(nullable = false)
     private String title;
     private String url;
