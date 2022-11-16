@@ -7,7 +7,7 @@ import com.isw.kayodeproject.mapper.PostMapper;
 import com.isw.kayodeproject.repository.PostRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.PostService;
-import com.isw.kayodeproject.util.SecurityUtils;
+//import com.isw.kayodeproject.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,7 +35,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> findPostsByUser() {
-        String email = SecurityUtils.getCurrentUser().getUsername();
+//        String email = SecurityUtils.getCurrentUser().getUsername();
+
+
+        // CHANGE THIS!
+        String email = "";
         Users createdBy = userRepository.findByEmail(email);
         Long userId = createdBy.getId();
         List<Post> posts = postRepository.findPostsByUser(userId);
@@ -46,7 +50,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void createPost(PostDto postDto) {
-        String email = SecurityUtils.getCurrentUser().getUsername();
+//        String email = SecurityUtils.getCurrentUser().getUsername();
+
+
+        //CHANGE THIS
+        String email = "";
         Users user = userRepository.findByEmail(email);
 //        String id = idGenerator.createId();
 //        postDto.setId(id);
@@ -67,7 +75,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void updatePost(PostDto postDto) {
-        String email = SecurityUtils.getCurrentUser().getUsername();
+//        String email = SecurityUtils.getCurrentUser().getUsername();
+
+        String email = "";
         Users createdBy = userRepository.findByEmail(email);
         Post post = PostMapper.mapToPost(postDto);
         post.setCreatedBy(createdBy);

@@ -5,7 +5,7 @@ import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.service.CommentService;
 import com.isw.kayodeproject.service.PostService;
 import com.isw.kayodeproject.util.ROLE;
-import com.isw.kayodeproject.util.SecurityUtils;
+//import com.isw.kayodeproject.util.SecurityUtills;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,13 +34,14 @@ public class PostController {
     // create handler method, GET request and return model and view
     @GetMapping("/admin/posts")
     public String posts(Model model){
-        String role = SecurityUtils.getRole();
+//        String role = SecurityUtils.getRole();
         List<PostDto> posts = null;
-        if(ROLE.ROLE_ADMIN.name().equals(role)){
+//        if(ROLE.ROLE_ADMIN.name().equals(role)){
             posts = postService.findAllPosts();
-        }else{
-            posts = postService.findPostsByUser();
-        }
+//        }
+//        else{
+//            posts = postService.findPostsByUser();
+//        }
         model.addAttribute("posts", posts);
         return "/admin/posts";
     }
@@ -48,13 +49,14 @@ public class PostController {
     // handler method to handle list comments request
     @GetMapping("/admin/posts/comments") // this is an endpoint
     public String postComments(Model model){
-        String role = SecurityUtils.getRole();
+//        String role = SecurityUtils.getRole();
         List<CommentDto> comments = null;
-        if(ROLE.ROLE_ADMIN.name().equals(role)){
+//        if(ROLE.ROLE_ADMIN.name().equals(role)){
             comments = commentService.findAllComments();
-        }else{
-            comments = commentService.findCommentsByPost();
-        }
+//        }
+//        else{
+//            comments = commentService.findCommentsByPost();
+//        }
         model.addAttribute("comments", comments);
         return "admin/comments";
     }
