@@ -1,5 +1,6 @@
 package com.isw.kayodeproject.dto;
 
+import com.isw.kayodeproject.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostDto {
-    private String id;
+    private Long id;
     // adds the not empty validation
     @NotEmpty(message = "Post title should not be empty")
     private String title;
@@ -26,5 +27,5 @@ public class PostDto {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     private Set<CommentDto> comments; //set of commentDto objects to be displayed
-    private User createdBy; // or useerdto?
+    private Users createdBy; // or userDto?
 }

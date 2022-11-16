@@ -2,12 +2,12 @@ package com.isw.kayodeproject.service.impl;
 
 import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.entity.Post;
-import com.isw.kayodeproject.entity.User;
+import com.isw.kayodeproject.entity.Users;
 import com.isw.kayodeproject.mapper.PostMapper;
 import com.isw.kayodeproject.repository.PostRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.PostService;
-import com.isw.kayodeproject.util.IdGenerator;
+import com.isw.kayodeproject.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> findPostsByUser() {
         String email = SecurityUtils.getCurrentUser().getUsername();
-        User createdBy = userRepository.findByEmail(email);
+        Users createdBy = userRepository.findByEmail(email);
         Long userId = createdBy.getId();
         List<Post> posts = postRepository.findPostsByUser(userId);
         return posts.stream()
@@ -47,7 +47,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public void createPost(PostDto postDto) {
         String email = SecurityUtils.getCurrentUser().getUsername();
-        User user = userRepository.findByEmail(email);
+        Users user = userRepository.findByEmail(email);
 //        String id = idGenerator.createId();
 //        postDto.setId(id);
         Post post = PostMapper.mapToPost(postDto);
@@ -68,7 +68,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public void updatePost(PostDto postDto) {
         String email = SecurityUtils.getCurrentUser().getUsername();
-        User createdBy = userRepository.findByEmail(email);
+        Users createdBy = userRepository.findByEmail(email);
         Post post = PostMapper.mapToPost(postDto);
         post.setCreatedBy(createdBy);
         postRepository.save(post);

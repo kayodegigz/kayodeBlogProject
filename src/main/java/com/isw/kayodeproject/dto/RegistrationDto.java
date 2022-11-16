@@ -16,10 +16,10 @@ public class RegistrationDto {
     private Long id;
 
     @NotEmpty
-    private String firstName;
+    private String name;
 
     @NotEmpty
-    private String lastName;
+    private String occupation;
 
     @NotEmpty(message = "Email should not be empty or null")
     @Email

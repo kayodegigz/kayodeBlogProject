@@ -1,7 +1,7 @@
 package com.isw.kayodeproject.controller;
 
 import com.isw.kayodeproject.dto.RegistrationDto;
-import com.isw.kayodeproject.entity.User;
+import com.isw.kayodeproject.entity.Users;
 import com.isw.kayodeproject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class AuthController {
     // handler method to handle user registration request
     @GetMapping("/register")
     public String showRegistrationForm(Model model){
-        // this object holds form data
+        // this object contains the registration form data
         RegistrationDto user = new RegistrationDto();
         model.addAttribute("user", user);
         return "register";
@@ -40,7 +40,7 @@ public class AuthController {
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
                            BindingResult result,
                            Model model){
-        User existingUser = userService.findByEmail(user.getEmail());
+        Users existingUser = userService.findByEmail(user.getEmail());
         if(existingUser != null && existingUser.getEmail() !=null && !existingUser.getEmail().isEmpty()){
             result.rejectValue("email", null, "There is already a user with same email id");
         }

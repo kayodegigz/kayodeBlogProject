@@ -39,7 +39,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "created_by", referencedColumnName = "userName", nullable = false)
-    private User createdBy;  // how will I map this to author?
+    private Users createdBy;  // how will I map this to author?
 
 
     //mappedBy value is in the comment entity. This is what maps the relationships

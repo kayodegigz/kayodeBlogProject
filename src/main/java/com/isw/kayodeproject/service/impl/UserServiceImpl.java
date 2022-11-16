@@ -2,10 +2,11 @@ package com.isw.kayodeproject.service.impl;
 
 import com.isw.kayodeproject.dto.RegistrationDto;
 import com.isw.kayodeproject.entity.Role;
-import com.isw.kayodeproject.entity.User;
+import com.isw.kayodeproject.entity.Users;
 import com.isw.kayodeproject.repository.RoleRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -26,8 +27,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(RegistrationDto registrationDto) {
-        User user = new User();
-        user.setName(registrationDto.getFirstName() + " " + registrationDto.getLastName());
+        Users user = new Users();
+        user.setName(registrationDto.getName());
         user.setEmail(registrationDto.getEmail());
         // use spring security to encrypt the password
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByEmail(String email) {
+    public Users findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }

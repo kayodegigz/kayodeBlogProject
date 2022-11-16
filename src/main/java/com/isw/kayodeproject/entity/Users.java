@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,9 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+    // cascade means all the actions performed on users should be performed on the corresponding role
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL) // To load a list of roles immediately user loads
     @JoinTable(
             name = "users_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
