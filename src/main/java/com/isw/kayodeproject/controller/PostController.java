@@ -27,7 +27,8 @@ public class PostController {
 
     @GetMapping("/")
     public String landingPage(Model model) {
-        return "/genericContent/index.html";
+//        return "/genericContent/index.html";
+        return "/admin/posts";
     }
 
     // create handler method, GET request and return model and view
@@ -70,7 +71,8 @@ public class PostController {
     public String newPostForm(Model model){
         PostDto postDto = new PostDto();
         model.addAttribute("post", postDto);
-        return "admin/create_post";
+        return "/admin/posts";
+//        return "admin/create_post";
     }
 
     // handler method to handle form submit request
@@ -81,7 +83,8 @@ public class PostController {
                              Model model){
         if(result.hasErrors()){
             model.addAttribute("post", postDto);
-            return "admin/create_post"; // If an error occurred, show the create post page again
+            return "/admin/posts";
+//            return "admin/create_post"; // If an error occurred, show the create post page again
         }
         //  setter method for url attr of postdto
         // and getUrl is defined below
@@ -97,7 +100,8 @@ public class PostController {
 
         PostDto postDto = postService.findPostById(postId);
         model.addAttribute("post", postDto);
-        return "admin/edit_post";
+        return "/admin/posts";
+//        return "admin/edit_post";
     }
 
     // handler method to handle edit post form submit request
@@ -108,7 +112,8 @@ public class PostController {
                              Model model){
         if(result.hasErrors()){
             model.addAttribute("post", post);
-            return "admin/edit_post";
+            return "/admin/posts";
+//            return "admin/edit_post";
         }
 
         post.setId(postId);
@@ -129,7 +134,8 @@ public class PostController {
                            Model model){
         PostDto postDto = postService.findPostByUrl(postUrl);
         model.addAttribute("post", postDto);
-        return "admin/view_post";
+        return "/admin/posts";
+//        return "admin/view_post";
 
     }
 

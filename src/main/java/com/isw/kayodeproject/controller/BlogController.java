@@ -23,11 +23,12 @@ public class BlogController {
     }
 
     // handler method to handle http://localhost:8080/(root)
-    @GetMapping("/")
+    @GetMapping("/blog")  // resolve this to blog home page
     public String viewBlogPosts(Model model){
         List<PostDto> postsResponse = postService.findAllPosts();
         model.addAttribute("postsResponse", postsResponse);
-        return "blog/view_posts";
+        return "/admin/posts";
+//        return "blog/view_posts";
     }
 
     // handler method to handle view post request
@@ -39,7 +40,8 @@ public class BlogController {
         CommentDto commentDto = new CommentDto();
         model.addAttribute("post", post);
         model.addAttribute("comment", commentDto);
-        return "blog/blog_post";
+        return "/admin/posts";
+//        return "blog/blog_post";
     }
 
     // handler method to handle blog post search request
@@ -50,6 +52,7 @@ public class BlogController {
         //@RequestParam is used to get the query string from the request body
         List<PostDto> postsResponse = postService.searchPosts(query);
         model.addAttribute("postsResponse", postsResponse);
-        return "blog/view_posts";
+        return "/admin/posts";
+//        return "blog/view_posts";
     }
 }

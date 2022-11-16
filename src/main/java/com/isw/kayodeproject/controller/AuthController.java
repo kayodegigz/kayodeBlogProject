@@ -32,7 +32,8 @@ public class AuthController {
         // this object contains the registration form data
         RegistrationDto user = new RegistrationDto();
         model.addAttribute("user", user);
-        return "register";
+        return "/admin/posts";
+//        return "register";
     }
 
     // handler method to handle user registration form submit request
@@ -47,7 +48,8 @@ public class AuthController {
 
         if(result.hasErrors()){
             model.addAttribute("user", user);
-            return "register";
+            return "/admin/posts";
+//            return "register";
         }
         userService.saveUser(user);
         return "redirect:/register?success";

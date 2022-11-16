@@ -35,7 +35,8 @@ public class CommentController {
         if(result.hasErrors()){ // result id a bindingRes object, it has a predefined has errors method
             model.addAttribute("post", postDto);
             model.addAttribute("comment", commentDto);
-            return "blog/blog_post";
+            return "/admin/posts";
+//            return "blog/blog_post";
         }
 
         commentService.createComment(postUrl, commentDto);

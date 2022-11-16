@@ -38,7 +38,7 @@ public class Post {
     private LocalDateTime updatedOn;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", referencedColumnName = "userName", nullable = false)
+    @JoinColumn(name = "created_by", referencedColumnName = "name", nullable = false)
     private Users createdBy;  // how will I map this to author?
 
 
