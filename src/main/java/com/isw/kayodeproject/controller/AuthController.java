@@ -24,7 +24,10 @@ public class AuthController {
     // handler method to handle login page request
     @GetMapping("/login")
     public String loginPage(){
-        return "login";
+
+
+//        return "login";
+        return "/admin/posts";
     }
     // handler method to handle user registration request
     @GetMapping("/register")

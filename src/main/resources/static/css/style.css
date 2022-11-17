@@ -669,22 +669,21 @@ ul.dropdown-menu li {
   }
 }
 .bg-1 {
-  background: url("../images/bg/home-2.jpg") no-repeat 50% 50%;
+  background: url("/static/images/library_bg_img.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
 
 .bg-2 {
-  background: url("../images/library_bg_img.jpg");
+  background: url("/static/images/library_bg_img.jpg");
   background-size: cover;
 }
 
 .slider {
-  background: url("../images/library_bg_img.jpg") no-repeat;
   /* height: 500px; */
   margin-top: -120px;
   background-size: cover;
-  background-position: 10% 0%;
-  padding: 200px 0;
+  background: url("../images/library_bg_img.jpg") no-repeat 10% 0%;
+  padding: 210px 0;
   position: relative;
 }
 @media (max-width: 768px) {
@@ -738,7 +737,7 @@ ul.dropdown-menu li {
   width: 45%;
   /* min-height: 650px; */
   border-radius: var(--border-radius);
-  background: url("../images/manReading.jpg") no-repeat;
+  background: url("/static/images/manReading.jpg") no-repeat;
   height: 450px;
   background-size: cover;
 }
@@ -772,7 +771,7 @@ ul.dropdown-menu li {
 }
 
 .bg-counter {
-  background: url("../images/bg/counter.jpg") no-repeat;
+  background: url("/static/images/bg/counter.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -849,13 +848,13 @@ ul.dropdown-menu li {
 }
 
 .cta {
-  background: url("../images/bg/home-3.jpg") fixed 50% 50%;
+  background: url("../../templates/admin/images/bg/home-3.jpg") fixed 50% 50%;
   background-size: cover;
   padding: 120px 0px;
 }
 
 .cta-block {
-  background: url("../images/bg/home-3.jpg") no-repeat;
+  background: url("../../templates/admin/images/bg/home-3.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -885,7 +884,7 @@ ul.dropdown-menu li {
 }
 
 .hero-img {
-  background: url("../images/bg/home-5.jpg");
+  background: url("../../templates/admin/images/bg/home-5.jpg");
   position: absolute;
   content: "";
   background-size: cover;

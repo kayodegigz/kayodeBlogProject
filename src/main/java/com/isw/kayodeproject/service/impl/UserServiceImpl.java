@@ -6,7 +6,7 @@ import com.isw.kayodeproject.entity.Users;
 import com.isw.kayodeproject.repository.RoleRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.UserService;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -16,13 +16,14 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder;
+//    private PasswordEncoder passwordEncoder;
     public UserServiceImpl(UserRepository userRepository,
-                           RoleRepository roleRepository,
-                           PasswordEncoder passwordEncoder) {
+                           RoleRepository roleRepository
+//                           ,PasswordEncoder passwordEncoder
+                            ) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+//        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -30,8 +31,11 @@ public class UserServiceImpl implements UserService {
         Users user = new Users();
         user.setName(registrationDto.getName());
         user.setEmail(registrationDto.getEmail());
+
         // use spring security to encrypt the password
-        user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
+
+
+//        user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         Role role = roleRepository.findByName("ROLE_GUEST");
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
