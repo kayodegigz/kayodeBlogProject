@@ -3,7 +3,7 @@ package com.isw.kayodeproject.service.impl;
 import com.isw.kayodeproject.dto.CommentDto;
 import com.isw.kayodeproject.entity.Comment;
 import com.isw.kayodeproject.entity.Post;
-import com.isw.kayodeproject.entity.Users;
+import com.isw.kayodeproject.entity.User;
 import com.isw.kayodeproject.mapper.CommentMapper;
 import com.isw.kayodeproject.repository.CommentRepository;
 import com.isw.kayodeproject.repository.PostRepository;
@@ -58,7 +58,7 @@ public class CommentServiceImpl implements CommentService {
 
         // this will be changed
         String email = "";
-        Users createdBy = userRepository.findByEmail(email);
+        User createdBy = userRepository.findByEmail(email);
         Long userId = createdBy.getId();
         List<Comment> comments = commentRepository.findCommentsByPost(userId);
         return comments.stream()

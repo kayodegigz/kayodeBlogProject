@@ -23,5 +23,5 @@ public class Role {
     @Column(nullable = false, unique = false)
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private List<Users> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 }

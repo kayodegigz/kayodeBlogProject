@@ -18,6 +18,8 @@ public class RegistrationDto {
     @NotEmpty
     private String name;
 
+    
+
     @NotEmpty
     private String occupation;
 

@@ -19,11 +19,13 @@ import java.util.Set;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     //Implement uuid here
     private Long id;
+
     @Column(nullable = false)
     private String title;
+
     private String url;
 
     @Lob
@@ -38,14 +40,18 @@ public class Post {
     private LocalDateTime updatedOn;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", referencedColumnName = "name", nullable = false)
-    private Users createdBy;  // how will I map this to author?
+    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = false)
+    private User createdBy;  // how will I map this to author?
+
+    @ManyToOne
+    @JoinColumn(name = "posts", referencedColumnName = "id", nullable = false)
+    private SubjectTopic subjectTopic;
 
 
     //mappedBy value is in the comment entity. This is what maps the relationships
     // Cascade is used in the sense that whatever happens in this entity should also happen
     // to all other entities dependent on it, so if this post is deleted, all the comments
     // under it should be deleted too
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
 }

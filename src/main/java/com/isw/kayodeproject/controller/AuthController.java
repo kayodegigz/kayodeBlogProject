@@ -1,7 +1,7 @@
 package com.isw.kayodeproject.controller;
 
 import com.isw.kayodeproject.dto.RegistrationDto;
-import com.isw.kayodeproject.entity.Users;
+import com.isw.kayodeproject.entity.User;
 import com.isw.kayodeproject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +44,7 @@ public class AuthController {
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
                            BindingResult result,
                            Model model){
-        Users existingUser = userService.findByEmail(user.getEmail());
+        User existingUser = userService.findByEmail(user.getEmail());
         if(existingUser != null && existingUser.getEmail() !=null && !existingUser.getEmail().isEmpty()){
             result.rejectValue("email", null, "There is already a user with same email id");
         }

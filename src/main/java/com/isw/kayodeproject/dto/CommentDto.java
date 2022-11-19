@@ -1,5 +1,7 @@
 package com.isw.kayodeproject.dto;
 
+import com.isw.kayodeproject.entity.Post;
+import com.isw.kayodeproject.entity.User;
 import lombok.*;
 
 import javax.validation.constraints.Email;
@@ -14,12 +16,19 @@ import java.time.LocalDateTime;
 public class CommentDto {
     private Long id;
     @NotEmpty
-    private String name;
-    @NotEmpty(message = "Email should not be empty or null")
-    @Email
-    private String email;
-    @NotEmpty(message = "Message body should not be empty")
+    private String title;
+
+    @NotEmpty
     private String content;
+//    @NotEmpty(message = "Email should not be empty or null")
+//    @Email
+//    private String email;
+//    @NotEmpty(message = "Message body should not be empty")
+//    private String content;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+    private Post post; //postId??? Why not?
+    private Long upVotes;
+    private Long downVotes;
+    private User user;
 }

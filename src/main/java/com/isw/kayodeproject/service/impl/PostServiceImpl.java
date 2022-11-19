@@ -2,7 +2,7 @@ package com.isw.kayodeproject.service.impl;
 
 import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.entity.Post;
-import com.isw.kayodeproject.entity.Users;
+import com.isw.kayodeproject.entity.User;
 import com.isw.kayodeproject.mapper.PostMapper;
 import com.isw.kayodeproject.repository.PostRepository;
 import com.isw.kayodeproject.repository.UserRepository;
@@ -40,7 +40,7 @@ public class PostServiceImpl implements PostService {
 
         // CHANGE THIS!
         String email = "";
-        Users createdBy = userRepository.findByEmail(email);
+        User createdBy = userRepository.findByEmail(email);
         Long userId = createdBy.getId();
         List<Post> posts = postRepository.findPostsByUser(userId);
         return posts.stream()
@@ -55,7 +55,7 @@ public class PostServiceImpl implements PostService {
 
         //CHANGE THIS
         String email = "";
-        Users user = userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);
 //        String id = idGenerator.createId();
 //        postDto.setId(id);
         Post post = PostMapper.mapToPost(postDto);
@@ -78,7 +78,7 @@ public class PostServiceImpl implements PostService {
 //        String email = SecurityUtils.getCurrentUser().getUsername();
 
         String email = "";
-        Users createdBy = userRepository.findByEmail(email);
+        User createdBy = userRepository.findByEmail(email);
         Post post = PostMapper.mapToPost(postDto);
         post.setCreatedBy(createdBy);
         postRepository.save(post);

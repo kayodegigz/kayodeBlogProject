@@ -2,7 +2,7 @@ package com.isw.kayodeproject.service.impl;
 
 import com.isw.kayodeproject.dto.RegistrationDto;
 import com.isw.kayodeproject.entity.Role;
-import com.isw.kayodeproject.entity.Users;
+import com.isw.kayodeproject.entity.User;
 import com.isw.kayodeproject.repository.RoleRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.UserService;
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(RegistrationDto registrationDto) {
-        Users user = new Users();
+        User user = new User();
         user.setName(registrationDto.getName());
         user.setEmail(registrationDto.getEmail());
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users findByEmail(String email) {
+    public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }

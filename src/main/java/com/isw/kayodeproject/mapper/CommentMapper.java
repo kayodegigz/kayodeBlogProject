@@ -9,11 +9,16 @@ public class CommentMapper {
     public static CommentDto mapToCommentDto(Comment comment){
         return CommentDto.builder()
                 .id(comment.getId())
-                .name(comment.getName())
-                .email(comment.getEmail())
+                .title(comment.getTitle())
+//                .name(comment.getName())
+//                .email(comment.getEmail())
                 .content(comment.getContent())
                 .createdOn(comment.getCreatedOn())
                 .updatedOn(comment.getUpdatedOn())
+                .upVotes(comment.getUpVotes())
+                .downVotes(comment.getDownVotes())
+                .user(comment.getUser())
+                .post(comment.getPost())
                 .build();
     }
 
@@ -21,11 +26,16 @@ public class CommentMapper {
     public static Comment mapToComment(CommentDto commentDto){
         return Comment.builder()
                 .id(commentDto.getId())
-                .name(commentDto.getName())
-                .email(commentDto.getEmail())
+                .title(commentDto.getTitle())
+//                .name(commentDto.getName())
+//                .email(commentDto.getEmail())
                 .content(commentDto.getContent())
                 .createdOn(commentDto.getCreatedOn())
                 .updatedOn(commentDto.getUpdatedOn())
+                .upVotes(commentDto.getUpVotes())
+                .downVotes(commentDto.getDownVotes())
+                .user(commentDto.getUser())
+                .post(commentDto.getPost())
                 .build();
     }
 }

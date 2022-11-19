@@ -1,6 +1,7 @@
 package com.isw.kayodeproject.dto;
 
-import com.isw.kayodeproject.entity.Users;
+import com.isw.kayodeproject.entity.SubjectTopic;
+import com.isw.kayodeproject.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,5 +28,6 @@ public class PostDto {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     private Set<CommentDto> comments; //set of commentDto objects to be displayed
-    private Users createdBy; // or userDto?
+    private User createdBy; // or userDto?
+    private SubjectTopic subjectTopic;
 }

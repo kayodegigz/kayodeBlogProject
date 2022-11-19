@@ -19,10 +19,9 @@ public class Comment {
     @Id // defines as primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private String email;
+    private String title;
     @Lob
     private String content;
     @CreationTimestamp
@@ -31,6 +30,14 @@ public class Comment {
     private LocalDateTime updatedOn;
 
     @ManyToOne
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id", referencedColumnName = "id",nullable = false) // so post_id is the name of the column that will be created
+                                                    // here to hold content from the referencedColumn, which is the id
     private Post post; //postId??? Why not?
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
+    private User user;
+
+    private Long upVotes;
+    private Long downVotes;
 }
