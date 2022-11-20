@@ -27,7 +27,7 @@ public class PostController {
 
     @GetMapping("/")
     public String landingPage(Model model) {
-//        return "/genericContent/index.html";
+//        return "/users/login.html";
         return "/admin/posts";
     }
 

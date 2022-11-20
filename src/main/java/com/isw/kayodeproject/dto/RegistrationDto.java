@@ -29,4 +29,7 @@ public class RegistrationDto {
 
     @NotEmpty(message = "Password should not be empty")
     private String password;
+
+    @NotEmpty(message = "Please Enter your date of birth")
+    private String dob;
 }

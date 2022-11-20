@@ -27,7 +27,7 @@ public class AuthController {
 
 
 //        return "login";
-        return "/admin/posts";
+        return "/users/login";
     }
     // handler method to handle user registration request
     @GetMapping("/register")
@@ -35,7 +35,7 @@ public class AuthController {
         // this object contains the registration form data
         RegistrationDto user = new RegistrationDto();
         model.addAttribute("user", user);
-        return "/admin/posts";
+        return "/users/register";
 //        return "register";
     }
 

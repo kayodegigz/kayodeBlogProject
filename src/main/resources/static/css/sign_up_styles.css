@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    background: url(../../templates/admin/images/library_bg_img.jpg);
+    background: url(../images/library_bg_img.jpg);
     background-size: cover;
 }
 
@@ -112,7 +112,7 @@ body {
     background: var(--color-primary);
     color: #ffffff;
     border: solid 1px var(--color-primary-dark);
-    transition: 0.4s;
+    transition: 0.7s;
 }
 
 .form__button:active {
