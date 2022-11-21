@@ -9,7 +9,10 @@ import com.isw.kayodeproject.service.UserService;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,16 +30,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(RegistrationDto registrationDto) {
+    public void saveUser(RegistrationDto registrationDto) throws ParseException {
         User user = new User();
         user.setName(registrationDto.getName());
         user.setEmail(registrationDto.getEmail());
+        user.setPassword(registrationDto.getPassword());
+
+//        convert date string coming from the form to date object
+        String dobString = registrationDto.getDob();
+//        Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(dobString);
+        Date dob = java.sql.Date.valueOf(dobString);
+        user.setDob(dob);
+
+//        user.setDob(registrationDto.getDob());
+        user.setOccupation(registrationDto.getOccupation());
 
         // use spring security to encrypt the password
 
-
 //        user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
-        Role role = roleRepository.findByName("ROLE_GUEST");
+        Role role = roleRepository.findByName("ROLE_USER");
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
     }
@@ -44,5 +56,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> findByName(String name) {
+        return userRepository.findByName(name);
     }
 }

@@ -138,3 +138,7 @@ body {
     transition: 0.7s;
 
 }
+
+.error-msg {
+    color: var(--color-error);
+}

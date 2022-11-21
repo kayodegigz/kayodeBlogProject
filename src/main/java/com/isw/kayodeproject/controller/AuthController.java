@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.text.ParseException;
+import java.util.Optional;
 
 @Controller
 public class AuthController {
@@ -43,18 +45,60 @@ public class AuthController {
     @PostMapping("/register/save")
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
                            BindingResult result,
-                           Model model){
-        User existingUser = userService.findByEmail(user.getEmail());
-        if(existingUser != null && existingUser.getEmail() !=null && !existingUser.getEmail().isEmpty()){
-            result.rejectValue("email", null, "There is already a user with same email id");
-        }
+                           Model model) throws ParseException {
+        // BindingResult is to display errors on the frontend
 
-        if(result.hasErrors()){
+        User existingUser = userService.findByEmail(user.getEmail());
+//        System.out.println("This is the existing user " + existingUser);
+//        if(existingUser != null && existingUser.getEmail() !=null && !existingUser.getEmail().isEmpty()){
+//            result.rejectValue("email", null, "There is already a user with this same email, please use another");
+//        }
+
+        if(existingUser != null) {
+            result.rejectValue("email", null, "There is already a user with this same email, please use another");
+        }
+        Optional<User> existingUserName = userService.findByName(user.getName());
+//        if(existingUserName != null && existingUserName.getName() !=null && !existingUserName.getName().isEmpty()){
+//            result.rejectValue("name", null, "This username is taken already, please try another!");
+//        }
+
+        System.out.println("This is the existing user with username" + existingUserName);
+
+        if(existingUserName == null){
+            result.rejectValue("name", null, "This username is taken already, please try another!");
+        }
+//        if (!existingUserName.isPresent()){
+//            model.addAttribute("name", existingUserName);
+//        }
+//
+//        if((user.getPassword().length()< 7)) {
+//            result.rejectValue("password", null, "The password should be more than 7 characters long");
+//        }
+//
+//        if (user.getPassword() == (user.getConfirmPassword())) {
+//            result.rejectValue("confirmPassword", null, "Passwords do not match");
+//        }
+//
+//        if (user.getDob() == null) {
+//            result.rejectValue("dob", null, "Please enter your date of birth");
+//        }
+//
+//        if (user.getDob() == null) {
+//            result.rejectValue("occupation", null, "Please enter your occupation");
+//        }
+
+//        System.out.println("I got here");
+
+        // if there are form related validation errors, they are handled here
+        if(result.hasErrors()) {
             model.addAttribute("user", user);
-            return "/admin/posts";
+            model.addAttribute("name", user);
+            return "/users/register";
+
 //            return "register";
         }
         userService.saveUser(user);
+//        System.out.println("I got here too");
         return "redirect:/register?success";
     }
 }
