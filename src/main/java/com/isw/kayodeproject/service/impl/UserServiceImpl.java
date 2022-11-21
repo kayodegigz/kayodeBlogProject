@@ -36,6 +36,10 @@ public class UserServiceImpl implements UserService {
         user.setEmail(registrationDto.getEmail());
         user.setPassword(registrationDto.getPassword());
 
+
+//        Optional<User> byName = findByName(user.getName());
+
+
 //        convert date string coming from the form to date object
         String dobString = registrationDto.getDob();
 //        Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(dobString);
@@ -59,7 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByName(String name) {
+    public User findByName(String name) {
         return userRepository.findByName(name);
     }
 }

@@ -49,7 +49,7 @@ public class AuthController {
         // BindingResult is to display errors on the frontend
 
         User existingUser = userService.findByEmail(user.getEmail());
-//        System.out.println("This is the existing user " + existingUser);
+        System.out.println("This is the existing user " + existingUser);
 //        if(existingUser != null && existingUser.getEmail() !=null && !existingUser.getEmail().isEmpty()){
 //            result.rejectValue("email", null, "There is already a user with this same email, please use another");
 //        }
@@ -57,27 +57,25 @@ public class AuthController {
         if(existingUser != null) {
             result.rejectValue("email", null, "There is already a user with this same email, please use another");
         }
-        Optional<User> existingUserName = userService.findByName(user.getName());
-//        if(existingUserName != null && existingUserName.getName() !=null && !existingUserName.getName().isEmpty()){
-//            result.rejectValue("name", null, "This username is taken already, please try another!");
-//        }
 
-        System.out.println("This is the existing user with username" + existingUserName);
-
-        if(existingUserName == null){
+        User existingUserName = userService.findByName(user.getName());
+        if(existingUserName != null){
             result.rejectValue("name", null, "This username is taken already, please try another!");
         }
-//        if (!existingUserName.isPresent()){
-//            model.addAttribute("name", existingUserName);
+
+
+
+//        if(existingUserName != null){
+//            result.rejectValue("name", null, "This username is taken already, please try another!");
 //        }
 //
-//        if((user.getPassword().length()< 7)) {
-//            result.rejectValue("password", null, "The password should be more than 7 characters long");
-//        }
+        if((user.getPassword().length()< 7)) {
+            result.rejectValue("password", null, "The password should be more than 7 characters long");
+        }
 //
-//        if (user.getPassword() == (user.getConfirmPassword())) {
-//            result.rejectValue("confirmPassword", null, "Passwords do not match");
-//        }
+        if (!user.getPassword().equals(user.getConfirmPassword())) {
+            result.rejectValue("confirmPassword", null, "Passwords do not match");
+        }
 //
 //        if (user.getDob() == null) {
 //            result.rejectValue("dob", null, "Please enter your date of birth");
@@ -92,7 +90,6 @@ public class AuthController {
         // if there are form related validation errors, they are handled here
         if(result.hasErrors()) {
             model.addAttribute("user", user);
-            model.addAttribute("name", user);
             return "/users/register";
 
 //            return "register";

@@ -40,6 +40,21 @@
 <!--        </p>-->
 
 <!--    </form>-->
+<!--    <div th:with="error=${session.ms1}">-->
+<!--        <div th:if="${error} != null">-->
+<!--            <div class="alert alert-success" style="background:none; text-align: center; color: red" role="alert">-->
+<!--                <div th:text = "${error}"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div th:with="error=${session.ms2}">
+        <div th:if="${error} != null">
+            <div class="alert alert-success" style="background:none; text-align: center; color: red" role="alert">
+                <div th:text = "${error}"></div>
+            </div>
+        </div>
+    </div>
 
 
     <form class="form" id="createAccount" method="post" th:object="${user}" role="form" th:action="@{/register/save}">
