@@ -28,7 +28,7 @@ public class PostController {
     @GetMapping("/")
     public String landingPage(Model model) {
 //        return "/users/login.html";
-        return "/admin/posts";
+        return "/users/index";
     }
 
     // create handler method, GET request and return model and view

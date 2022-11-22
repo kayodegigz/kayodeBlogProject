@@ -29,7 +29,7 @@ public class AuthController {
 
 
 //        return "login";
-        return "/users/login";
+        return "users/login";
     }
     // handler method to handle user registration request
     @GetMapping("/register")
