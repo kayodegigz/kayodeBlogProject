@@ -625,6 +625,7 @@ a:focus {
   font-size: 14px;
   font-weight: 500;
 }
+
 @media (max-width: 992px) {
   .dropdown-item {
     padding: 0.6rem 1.5rem 0.35rem;
@@ -635,7 +636,7 @@ a:focus {
 .dropdown-submenu:hover > .dropdown-item,
 .dropdown-item.active,
 .dropdown-item:hover {
-  background: rgb(247, 87, 87);
+  background: var(--color-primary);
   color: #fff;
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en-us"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head th:replace="admin/header :: header"></head>
 
@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-lg-9 col-md-10">
                 <div class="block">
-                    <span class="welcome-message d-block mb-3 text-white text-capitalize">Welcome To <span class="q-style">Q</span>Rate <span class="q-style">-</span> Admin</span>
+                    <span class="welcome-message d-block mb-3 text-white text-capitalize">Welcome To <span class="q-style">Q</span>Rate <span class="q-style">-</span> Admin </span>
 
                     <!-- <h1 class="animated fadeInUp mb-5">Covering<br>Several <br>Topics</h1> -->
                     <!-- <a href="#"  class="btn-slider btn btn-main animated fadeInUp btn-round-full" aria-label="Get started">Check It Out<i class="btn-icon fa fa-angle-right ml-2"></i></a> -->
@@ -48,8 +48,8 @@
             <div class="col col-3" data-label="Amount" th:text="${post.shortDescription}">lorem ipsum</div>
             <div class="col col-4" data-label="Payment Status" th:text="${post.createdOn}">Pending</div>
             <div class="col col-5" data-label="Payment Status" th:text="${post.shortDescription}">
-                <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
-                <button class="btn btn-delete btn-round-full .btn-navbar">DELETE POST</button>
+<!--                <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>-->
+                <button class="btn btn-delete btn-round-full .btn-navbar">REMOVE USER</button>
 
             </div>
         </li>
