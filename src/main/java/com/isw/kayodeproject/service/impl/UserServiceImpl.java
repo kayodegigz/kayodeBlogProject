@@ -5,18 +5,15 @@ import com.isw.kayodeproject.dto.RegistrationDto;
 import com.isw.kayodeproject.entity.Role;
 import com.isw.kayodeproject.entity.User;
 //import com.isw.kayodeproject.enums.UserRole;
+import com.isw.kayodeproject.enums.UserRole;
 import com.isw.kayodeproject.repository.RoleRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,10 +35,41 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void saveAdmin(RegistrationDto registrationDto) {
+        User user = new User();
+        user.setName(registrationDto.getName());
+        user.setRole(String.valueOf(UserRole.ADMIN));
+        user.setEmail(registrationDto.getEmail());
+        user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
+//        user.setPassword(registrationDto.getPassword());
+
+
+//        Optional<User> byName = findByName(user.getName());
+
+
+
+        String dobString = registrationDto.getDob();
+
+        Date dob = java.sql.Date.valueOf(dobString);
+        user.setDob(dob);
+
+        user.setOccupation(registrationDto.getOccupation());
+
+
+
+
+//        Role role = roleRepository.findByName("ADMIN");
+//
+//        System.out.println("The role in admin object is " + role.toString());
+//        user.setRoles(Arrays.asList(role));
+        userRepository.save(user);
+    }
+
+    @Override
     public void saveUser(RegistrationDto registrationDto) {
         User user = new User();
         user.setName(registrationDto.getName());
-//        user.setRole(String.valueOf(UserRole.ADMIN));
+        user.setRole(String.valueOf(UserRole.USER));
         user.setEmail(registrationDto.getEmail());
         user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
 //        user.setPassword(registrationDto.getPassword());

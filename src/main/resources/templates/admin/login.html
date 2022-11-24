@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/sign_up_styles.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{https://unicons.iconscout.com/release/v4.0.0/css/line.css}">
+
+<!--    <style>-->
+<!--        body {-->
+<!--            &#45;&#45;color-primary: #FF8C00;-->
+<!--            &#45;&#45;color-primary-dark: #ef8813;-->
+<!--            &#45;&#45;color-secondary: #252c6a;-->
+<!--            &#45;&#45;color-error: #c33;-->
+<!--            &#45;&#45;color-success: #4bb544;-->
+<!--            &#45;&#45;border-radius: 4px;-->
+
+<!--            margin: 0;-->
+<!--            height: 100vh;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            font-size: 18px;-->
+<!--            background: url(../../static/images/library_bg_img.jpg);-->
+<!--            background-size: cover;-->
+<!--        }-->
+
+<!--        .container {-->
+<!--            width: 400px;-->
+<!--            max-width: 400px;-->
+<!--            margin: 1rem;-->
+<!--            padding: 2rem;-->
+<!--            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            background: #ffffff;-->
+<!--        }-->
+
+<!--        .container, .form__input, .form__button {-->
+<!--            font: 500 1rem 'IBM Plex Sans', sans-serif;-->
+
+<!--        }-->
+
+<!--        .form&#45;&#45;hidden {-->
+<!--            display: none;-->
+<!--        }-->
+
+<!--        .form > *:first-child {-->
+<!--            margin-top: 0;-->
+<!--        }-->
+
+<!--        .form > *:last-child {-->
+<!--            margin-bottom: 0;-->
+<!--        }-->
+
+<!--        .form__title {-->
+<!--            margin-bottom: 2rem;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .form__message {-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .form__message&#45;&#45;success {-->
+<!--            color: var(&#45;&#45;color-success);-->
+<!--        }-->
+
+<!--        .form__message&#45;&#45;error {-->
+<!--            color: var(&#45;&#45;color-error);-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        .form__input-group {-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .form__input {-->
+<!--            display: block;-->
+<!--            width: 100%;-->
+<!--            padding: 0.75rem;-->
+<!--            box-sizing: border-box;-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            border: 1px solid #dddddd;-->
+<!--            outline: none;-->
+<!--            background: #eeeeee;-->
+<!--            transition: background 0.2s, border-color 0.2s;-->
+<!--        }-->
+
+<!--        .form__input:focus {-->
+<!--            border-color: var(&#45;&#45;color-primary);-->
+<!--            background: #ffffff;-->
+<!--        }-->
+
+<!--        .form__input&#45;&#45;error {-->
+<!--            color: var(&#45;&#45;color-error);-->
+<!--            border-color: var(&#45;&#45;color-error);-->
+<!--            border: solid 2px;-->
+<!--        }-->
+
+<!--        .form__input-error-message {-->
+<!--            margin-top: 0.5rem;-->
+<!--            font-size: 0.85rem;-->
+<!--            color: var(&#45;&#45;color-error);-->
+<!--        }-->
+
+<!--        .form__button {-->
+<!--            width: 100%;-->
+<!--            padding: 1rem 2rem;-->
+<!--            font-weight: bold;-->
+<!--            font-size: 1.1rem;-->
+<!--            color: var(&#45;&#45;color-primary-dark);-->
+<!--            border: solid 1px var(&#45;&#45;color-primary-dark);-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            outline: none;-->
+<!--            cursor: pointer;-->
+<!--            background: #ffffff;-->
+<!--        }-->
+
+<!--        .form__button:hover {-->
+<!--            background: var(&#45;&#45;color-primary);-->
+<!--            color: #ffffff;-->
+<!--            border: solid 1px var(&#45;&#45;color-primary-dark);-->
+<!--            transition: 0.7s;-->
+<!--        }-->
+
+<!--        .form__button:active {-->
+<!--            transform: scale(0.98);-->
+<!--        }-->
+
+<!--        .form__text {-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .form__link {-->
+<!--            color: var(&#45;&#45;color-secondary);-->
+<!--            text-decoration: none;-->
+<!--            cursor: pointer;-->
+<!--            transition: 0.7s;-->
+<!--        }-->
+
+<!--        .form__link:hover {-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+
+<!--        #link-login {-->
+<!--            transition: 0.7s;-->
+
+<!--        }-->
+
+<!--        .error-msg {-->
+<!--            color: var(&#45;&#45;color-error);-->
+<!--        }-->
+<!--    </style>-->
+
+    <title>QRATE</title>
+</head>
+<body>
+    <div class="container">
+
+        <div th:if="${param.logout}" class="form__message--success">
+            You have been successfully logged out, click <a th:href="@{/}">here</a> to go to the homepage.
+        </div>
+
+        <div th:if="${param.error}" class="form__message--error">
+            Invalid credentials. Please try again.</a>
+        </div>
+
+        <form class="form" id="login" method="post" role="form" th:action="@{/admin/login}">
+            <h1 class="form__title">Login</h1>
+            
+            <div class="form__message form__message--error"></div>
+
+<!--            <div>-->
+<!--                <input type="text" class="form__input" id="name" name="username" placeholder="input username">-->
+<!--                <input type="text" class="form__input" id="pword" name="password" placeholder="input password">-->
+<!--            </div>-->
+
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="username" id="username" autofocus required placeholder="Email">
+                <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="password" id="password" name="password" class="form__input" autofocus required placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+
+            <button class="form__button" type="submit" >Continue</button>
+
+            <p class="form__text">
+<!--                id="linkCreateAccount" was removed from below-->
+                <a th:href="@{/register}" class="form__link" >Don't have an account? Create account</a>
+            </p>
+
+        </form>
+    </div>
+
+
+<!--        <form class="form form&#45;&#45;hidden" id="createAccount" th:action="@{register/save}">-->
+<!--            <h1 class="form__title">Create Account</h1>-->
+<!--            -->
+<!--            <div class="form__message form__message&#45;&#45;error"></div>-->
+<!--            -->
+<!--            <div class="form__input-group">-->
+<!--                <input type="text" class="form__input" id="signupUsername" autofocus required placeholder="Username">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form__input-group">-->
+<!--                <input type="email " class="form__input" autofocus required placeholder="Email Address">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form__input-group">-->
+<!--                <input type="password" class="form__input" autofocus required placeholder="Password">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form__input-group">-->
+<!--                <input type="password" class="form__input" autofocus required placeholder="Confirm Password">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form__input-group">-->
+<!--                <input type="text" class="form__input" autofocus required placeholder="What do you do?">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <div class="form__input-group">-->
+<!--                <input type="date" class="form__input" autofocus required placeholder="Date of Birth">-->
+<!--                <div class="form__input-error-message"></div>-->
+<!--            </div>-->
+
+<!--            <button class="form__button" type="submit">Continue</button>-->
+
+<!--            <p class="form__text">-->
+<!--                <a class="form__link" id="linkLogin">Already have an Account? Sign In</a>-->
+<!--            </p>-->
+
+<!--        </form>-->
+<!--    </div>-->
+    
+
+<!--    <script th:src="@{/js/signup-login-script.js}" src="script.js"></script>-->
+ </body>
+</html>

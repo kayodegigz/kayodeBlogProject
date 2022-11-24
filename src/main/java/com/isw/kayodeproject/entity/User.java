@@ -42,7 +42,7 @@ public class User {
     private Date dob;  // ask gb how to convert it to age
     private Date dateJoined;
 
-//    private String role;
+    private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Comment> comment;

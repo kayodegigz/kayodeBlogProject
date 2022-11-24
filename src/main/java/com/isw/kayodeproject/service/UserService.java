@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.util.Optional;
 
 public interface UserService {
+    void saveAdmin(RegistrationDto registrationDto);
+
     void saveUser(RegistrationDto registrationDto) throws ParseException;
 
     User findByEmail(String email);

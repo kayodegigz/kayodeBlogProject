@@ -32,13 +32,21 @@ public class AuthController {
         return "/users/login";
     }
 
+    @GetMapping("/admin/login")
+    public String adminLoginPage(){
 
-    @GetMapping("/users/")
+
+//        return "login";
+        return "/admin/login";
+    }
+
+
+    @GetMapping("/user/")
     public String loginSuccess(Model model) {
         return "/users/loginSuccess";
     }
     // handler method to handle user registration request
-    @GetMapping("/register")
+    @GetMapping("/user/register")
     public String showRegistrationForm(Model model){
         // this object contains the registration form data
         RegistrationDto user = new RegistrationDto();
@@ -46,6 +54,16 @@ public class AuthController {
         return "/users/register";
 //        return "register";
     }
+
+    @GetMapping("/admin/register")
+    public String showAdminRegistrationForm(Model model){
+        // this object contains the registration form data
+        RegistrationDto user = new RegistrationDto();
+        model.addAttribute("user", user);
+        return "/admin/register";
+//        return "register";
+    }
+
 
     // handler method to handle user registration form submit request
     @PostMapping("/register/save")
@@ -104,5 +122,38 @@ public class AuthController {
         userService.saveUser(user);
 //        System.out.println("I got here too");
         return "redirect:/register?success";
+    }
+
+    @PostMapping("/admin/register/save")
+    public String registerAdmin(@Valid @ModelAttribute("user") RegistrationDto user,
+                           BindingResult result,
+                           Model model) throws ParseException {
+        User existingUser = userService.findByEmail(user.getEmail());
+        System.out.println("This is the existing user " + existingUser);
+
+        if(existingUser != null) {
+            result.rejectValue("email", null, "There is already a user with this same email, please use another");
+        }
+
+        User existingUserName = userService.findByName(user.getName());
+        if(existingUserName != null){
+            result.rejectValue("name", null, "This username is taken already, please try another!");
+        }
+
+        if((user.getPassword().length()< 7)) {
+            result.rejectValue("password", null, "The password should be more than 7 characters long");
+        }
+//
+        if (!user.getPassword().equals(user.getConfirmPassword())) {
+            result.rejectValue("confirmPassword", null, "Passwords do not match");
+        }
+
+        if(result.hasErrors()) {
+            model.addAttribute("user", user);
+            return "/admin/register";
+
+        }
+        userService.saveAdmin(user);
+        return "redirect:/admin/register?success";
     }
 }
