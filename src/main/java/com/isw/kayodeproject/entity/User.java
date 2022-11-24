@@ -26,7 +26,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // mapped by is the name of the instance in the many to one end
+    // mapped by refers to the name of the instance in the many to one end
     @OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
     private List<Post> posts;
 
@@ -41,6 +41,8 @@ public class User {
     private String occupation;
     private Date dob;  // ask gb how to convert it to age
     private Date dateJoined;
+
+//    private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Comment> comment;

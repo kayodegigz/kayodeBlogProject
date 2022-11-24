@@ -29,7 +29,13 @@ public class AuthController {
 
 
 //        return "login";
-        return "users/login";
+        return "/users/login";
+    }
+
+
+    @GetMapping("/users/")
+    public String loginSuccess(Model model) {
+        return "/users/loginSuccess";
     }
     // handler method to handle user registration request
     @GetMapping("/register")
@@ -46,6 +52,7 @@ public class AuthController {
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
                            BindingResult result,
                            Model model) throws ParseException {
+        // @Valid annotation applies the validation constraints that have been set on the registrationDto class
         // BindingResult is to display errors on the frontend
 
         User existingUser = userService.findByEmail(user.getEmail());

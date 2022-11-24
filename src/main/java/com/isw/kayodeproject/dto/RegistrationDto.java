@@ -34,4 +34,6 @@ public class RegistrationDto {
 
     @NotEmpty(message = "Please Enter your date of birth")
     private String dob;
+
+    private String role;
 }
