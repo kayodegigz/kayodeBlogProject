@@ -27,7 +27,7 @@ public class PostController {
     @GetMapping("/")
     public String landingPage() {
 //        return "/users/login.html";
-        return "/generic/index";
+        return "/users/index";
     }
 
     // create handler method, GET request and return model and view
@@ -72,7 +72,7 @@ public class PostController {
     public String newPostForm(Model model){
         PostDto postDto = new PostDto();
         model.addAttribute("post", postDto);
-        return "/admin/posts";
+        return "/users/createPost";
 //        return "admin/create_post";
     }
 
