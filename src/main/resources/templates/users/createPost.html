@@ -1,10 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
+<head>
+
+    <!-- ** Basic Page Needs ** -->
+    <meta charset="utf-8">
+    <title>QRATE</title>
+
+    <!-- ** Mobile Specific Metas ** -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="QRATE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="kayode Template">
+
+    <!-- theme meta -->
+    <meta name="theme-name" content="megakit" />
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- Icon Font Css -->
+    <link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!--Favicon-->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+    <style>
+        .btn-createPost:hover {
+            color: white;
+        }
+    </style>
+
+</head>
+
+
+<body>
+<header>
+    <div id="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg px-0 py-4">
+                        <a class="navbar-brand" href="index.html">
+                            QRATE.
+                        </a>
+
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                                aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fa fa-bars"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse text-center" id="navbarsExample09">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown @@about">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down small"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                                        <li><a class="dropdown-item @@company" href="about.html">Our company</a></li>
+                                        <li><a class="dropdown-item @@pricing" href="pricing.html">Pricing</a></li>
+
+                                        <li class="dropdown dropdown-submenu dropright">
+                                            <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+
+                                            <ul class="dropdown-menu" aria-labelledby="dropdown0301">
+                                                <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
+                                                <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- <li class="nav-item @@service"><a class="nav-link" href="service.html">Services</a></li> -->
+                                <!-- <li class="nav-item @@project"><a class="nav-link" href="project.html">Portfolio</a></li> -->
+                                <li class="nav-item dropdown @@blog">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subject Topics <i class="fas fa-chevron-down small"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                                        <li><a class="dropdown-item @@blogGrid" href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a class="dropdown-item @@blogSidebar" href="blog-sidebar.html">Blog with Sidebar</a></li>
+                                        <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
+
+                                        <li class="dropdown dropdown-submenu dropleft">
+                                            <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+
+                                            <ul class="dropdown-menu" aria-labelledby="dropdown0501">
+                                                <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
+                                                <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- <li class="nav-item @@contact"><a class="nav-link" href="contact.html">Contact</a></li> -->
+                            </ul>
+
+                            <div class="my-2 my-md-0 ml-lg-4 text-center">
+                                <a th:href="@{/register}" class="btn-navbar btn-signup btn btn-solid-border btn-round-full">Log Out</a>
+                                <a th:href="@{/users/posts/newpost}" class="btn-navbar btn-login btn btn-solid-border btn-round-full">New Post</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br /><br />
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card ">
+            <div class="card-header create-post-header">
+                <h2 class="text-center" style="color: #FFFFFF"> Create Post</h2>
+            </div>
+            <div class="card-body">
+                <form role="form" method="post" class="createPost" th:action="@{/users/posts/newpost}" th:object="${post}">
+                    <div class="mb-3">
+                        <input
+                                autofocus
+                                required
+                                type="text"
+                                class="form-control form__input"
+                                id="title"
+                                placeholder="Enter post title"
+                                name="title"
+                                th:field="*{title}"
+                        />
+                        <p th:if="${#fields.hasErrors('title')}" class="text-danger"
+                           th:errors="*{title}"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea
+                                autofocus
+                                required
+                                class="form-control form__input"
+                                id="shortDescription"
+                                placeholder="Enter short description"
+                                rows="3"
+                                name="shortDescription"
+                                th:field="*{shortDescription}"
+                        >
+
+                        </textarea>
+                        <p th:if="${#fields.hasErrors('shortDescription')}" class="text-danger"
+                           th:errors="*{shortDescription}"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea
+                                class="form-control form__input"
+                                id="content"
+                                placeholder="A description of the resource should be here"
+                                rows="12"
+                                name="content"
+                                th:field="*{content}"
+                        >
+                        </textarea>
+                        <p th:if="${#fields.hasErrors('content')}" class="text-danger"
+                           th:errors="*{content}"></p>
+                    </div>
+                    <button type="submit" class=" btn-main btn-navbar btn btn-createPost" style="color: #FF8C00">Post Content</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+<!--</div>-->
+<br /><br /><br /><br /><br />
+
+<footer class="footer section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Company</h4>
+
+                    <ul class="list-unstyled footer-menu lh-35">
+                        <li><a href="about.html">Terms & Conditions</a></li>
+                        <!-- <li><a href="about.html">Privacy Policy</a></li> -->
+                        <li><a href="cobtact.html">Support</a></li>
+                        <li><a href="cobtact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Quick Links</h4>
+
+                    <ul class="list-unstyled footer-menu lh-35">
+                        <li><a href="about.html">About</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="blog-grid.html">Blogs</a></li> -->
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Subscribe Us</h4>
+                    <p>Subscribe to get latest news article and resources </p>
+
+                    <form action="#" class="sub-form">
+                        <input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">
+                        <a href="#" class="btn btn-main btn-small">subscribe</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-3 col-sm-6">
+              <div class="widget">
+                <div class="logo mb-4">
+                  <h3>Mega<span>kit.</span></h3>
+                </div>
+                <h6><a href="mailto:support@gmail.com">Support@megakit.com</a></h6>
+                <a href="tel:+23-345-67890"><span class="text-color h4">+23-456-6588</span></a>
+              </div>
+            </div> -->
+        </div>
+
+        <div class="footer-btm pt-4">
+            <div class="row">
+                <div class="col-lg-6 text-left text-lg-right">
+                    <!-- <ul class="list-inline footer-socials">
+                      <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fab fa-facebook-f mr-2"></i>Facebook</a></li>
+                      <li class="list-inline-item"><a href="https://twitter.com/"><i class="fab fa-twitter mr-2"></i>Twitter</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+    <span class="icon fa fa-angle-up"></span>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ) )
+        .then( editor => {
+            console.log( editor );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </body>
 </html>

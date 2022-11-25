@@ -68,7 +68,7 @@ public class PostController {
     }
 
     // handler method to handle new post request
-    @GetMapping("admin/posts/newpost")
+    @GetMapping("/users/posts/newpost")
     public String newPostForm(Model model){
         PostDto postDto = new PostDto();
         model.addAttribute("post", postDto);

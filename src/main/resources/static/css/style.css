@@ -121,6 +121,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   border-radius: 0;
   transition: 0.3s;
   white-space: nowrap;
+  border-radius: var(--color-primary);
 }
 .btn.btn-icon i {
   font-size: 16px;
@@ -989,6 +990,16 @@ ul.dropdown-menu li {
   width: 100%;
 }
 
+.createPost > .form__input {
+  border: solid 1px var(--color-primary);
+  border-bottom: solid 3px var(--color-primary);
+}
+
+.createPost > .form__input:focus {
+  border: solid 1px var(--color-primary);
+  border-bottom: solid 3px var(--color-primary);
+}
+
 .address-block li {
   margin-bottom: 10px;
 }
@@ -1660,3 +1671,16 @@ h3.quote::before {
       text-align: right;
     }
   }
+
+.btn-createPost {
+  border-radius: var(--border-radius);
+}
+
+.btn-createPost:hover {
+  color: white;
+}
+
+.create-post-header {
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+}
