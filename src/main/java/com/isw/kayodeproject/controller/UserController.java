@@ -1,39 +1,35 @@
-//package com.isw.kayodeproject.controller;
-//
-//import com.isw.kayodeproject.entity.User;
-//import com.isw.kayodeproject.repository.UserRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//
-//import java.security.Principal;
-//
-//
-//@Controller
-//@RequestMapping("/users")
-//public class UserController {
-//
-//    @Autowired
-//    private UserRepository userRepo;
-//
-//    public UserController(UserRepository userRepo) {
-//        this.userRepo = userRepo;
-//    }
-//
-//    @ModelAttribute
-//    private void userDetails(Model m, Principal p) {
-//        String email = p.getName();
-//        User user = userRepo.findByEmail(email);
-//
-//        m.addAttribute("user", user);
-//
-//    }
-////
-//    @GetMapping("/")
-//    public String userHome() {
-//        return "/users/loginSuccess";
-//    }
-//}
+package com.isw.kayodeproject.controller;
+
+import com.isw.kayodeproject.dto.PostDto;
+import com.isw.kayodeproject.dto.UsersDto;
+import com.isw.kayodeproject.service.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+
+
+@Controller
+public class UserController {
+
+    private UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/admin/users")
+    public String users(Model model){
+        // the attributes for this hasn't been mapped
+
+        List<UsersDto> users = null;
+        users = userService.findAllUsers();
+
+        model.addAttribute("users", users);
+        return "/admin/users";
+    }
+
+
+}

@@ -27,7 +27,7 @@ public class PostController {
     @GetMapping("/")
     public String landingPage() {
 //        return "/users/login.html";
-        return "/users/index";
+        return "/generic/index";
     }
 
     // create handler method, GET request and return model and view
@@ -44,6 +44,8 @@ public class PostController {
         model.addAttribute("posts", posts);
         return "/admin/posts";
     }
+
+
 
     // handler method to handle list comments request
     @GetMapping("/admin/posts/comments") // this is an endpoint
@@ -77,15 +79,15 @@ public class PostController {
     }
 
     // handler method to handle form submit request
-    @PostMapping("/admin/posts")
+    @PostMapping("/users/posts")
     //@ModelAttribute maps the input from the form to @the Model
     public String createPost(@Valid @ModelAttribute("post") PostDto postDto,
                              BindingResult result,
                              Model model){
         if(result.hasErrors()){
             model.addAttribute("post", postDto);
-            return "/admin/posts";
-//            return "admin/create_post"; // If an error occurred, show the create post page again
+            return "/users/blog"; // If an error occurred, show the create post page again
+//            return "admin/create_post";
         }
         //  setter method for url attr of postdto
         // and getUrl is defined below

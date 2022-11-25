@@ -3,7 +3,9 @@
 <html lang="en-us"
       xmlns:th="http://www.thymeleaf.org"
 >
-<head th:replace="admin/header :: header"></head>
+<head th:replace="admin/header :: header">
+
+</head>
 
 <body>
 
@@ -33,21 +35,21 @@
 
 <!-- Table for posts start -->
 <div class="table-container">
-    <h2>Manage Posts</small></h2>
-    <ul class="responsive-table">
+    <h2>Manage Users</small></h2>
+    <ul class="responsive-table responsive-table-users">
         <li class="table-header">
-            <div class="col col-1">Post Title</div>
-            <div class="col col-2">Author</div>
-            <div class="col col-3">Post Short Description</div>
-            <div class="col col-4">Date Created</div>
+            <div class="col col-1">UserName</div>
+            <div class="col col-2">Email</div>
+            <div class="col col-3">Occupation</div>
+            <div class="col col-4">dob</div>
             <div class="col col-5">Actions</div>
         </li>
-        <li class="table-row" th:each="post : ${posts}">
-            <div class="col col-1" data-label="Job Id" th:text="${post.title}">42235</div>
-            <div class="col col-2" data-label="Customer Name" th:text="${post.createdBy}">John Doe</div>
-            <div class="col col-3" data-label="Amount" th:text="${post.shortDescription}">lorem ipsum</div>
-            <div class="col col-4" data-label="Payment Status" th:text="${post.createdOn}">Pending</div>
-            <div class="col col-5" data-label="Payment Status" th:text="${post.shortDescription}">
+        <li class="table-row" th:each="user, res : ${users}">
+            <div class="col col-1" data-label="Job Id" th:text="${user.name}"></div>
+            <div class="col col-2" data-label="Customer Name" th:text="${user.email}">John Doe</div>
+            <div class="col col-3" data-label="Amount" th:text="${user.occupation}">lorem ipsum</div>
+            <div class="col col-4" data-label="Payment Status" th:text="${user.dob}">Pending</div>
+            <div class="col col-5" data-label="Payment Status" >
 <!--                <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>-->
                 <button class="btn btn-delete btn-round-full .btn-navbar">REMOVE USER</button>
 

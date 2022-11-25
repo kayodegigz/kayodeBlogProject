@@ -61,6 +61,8 @@ public class AuthController {
 //            result.rejectValue("email", null, "There is already a user with this same email, please use another");
 //        }
 
+
+
         if(existingUser != null) {
             result.rejectValue("email", null, "There is already a user with this same email, please use another");
         }

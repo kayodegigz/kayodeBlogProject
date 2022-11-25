@@ -2,9 +2,13 @@ package com.isw.kayodeproject.service.impl;
 
 //import com.isw.kayodeproject.config2.SecurityConfig;
 import com.isw.kayodeproject.dto.RegistrationDto;
+import com.isw.kayodeproject.dto.UsersDto;
+import com.isw.kayodeproject.entity.Post;
 import com.isw.kayodeproject.entity.Role;
 import com.isw.kayodeproject.entity.User;
 //import com.isw.kayodeproject.enums.UserRole;
+import com.isw.kayodeproject.mapper.PostMapper;
+import com.isw.kayodeproject.mapper.UserMapper;
 import com.isw.kayodeproject.repository.RoleRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.UserService;
@@ -16,7 +20,9 @@ import org.springframework.stereotype.Service;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -67,6 +73,13 @@ public class UserServiceImpl implements UserService {
         System.out.println("The role object is " + role.toString());
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
+    }
+
+    @Override
+    public List<UsersDto> findAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(UserMapper::mapToUserDto) // same as <<map((post) -> PostMapper.mapToPostDto(post))>>
+                .collect(Collectors.toList());
     }
 
     @Override
