@@ -59,7 +59,7 @@ public class PostServiceImpl implements PostService {
 //        String id = idGenerator.createId();
 //        postDto.setId(id);
         Post post = PostMapper.mapToPost(postDto);
-        post.setCreatedBy(user);
+//        post.setCreatedBy(user);
         postRepository.save(post);
     }
 
@@ -80,7 +80,7 @@ public class PostServiceImpl implements PostService {
         String email = "";
         User createdBy = userRepository.findByEmail(email);
         Post post = PostMapper.mapToPost(postDto);
-        post.setCreatedBy(createdBy);
+//        post.setCreatedBy(createdBy);
         postRepository.save(post);
     }
 

@@ -51,7 +51,9 @@
             <div class="col col-4" data-label="Payment Status" th:text="${user.dob}">Pending</div>
             <div class="col col-5" data-label="Payment Status" >
 <!--                <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>-->
-                <button class="btn btn-delete btn-round-full .btn-navbar">REMOVE USER</button>
+                <a th:href="@{/admin/users/{userId}/delete(userId=${user.id})}">
+                    <button class="btn btn-delete btn-round-full .btn-navbar">REMOVE USER</button>
+                </a>
 
             </div>
         </li>

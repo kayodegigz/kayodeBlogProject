@@ -28,8 +28,8 @@ public class User {
     private String password;
 
     // mapped by refers to the name of the instance in the many to one end
-    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
-    private List<Post> posts;
+//    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
+//    private List<Post> posts;
 
     // cascade means all the actions performed on users should be performed on the corresponding role
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL) // To load a list of roles immediately user loads

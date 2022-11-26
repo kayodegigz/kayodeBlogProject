@@ -17,9 +17,9 @@ public class PostMapper {
                 .shortDescription(post.getShortDescription())
                 .createdOn(post.getCreatedOn())
                 .updatedOn(post.getUpdatedOn())
-                .comments(post.getComments().stream()
-                        .map((comment) -> CommentMapper.mapToCommentDto(comment))
-                        .collect(Collectors.toSet())) // .toSet method collects the result in a set
+//                .comments(post.getComments().stream()
+//                        .map((comment) -> CommentMapper.mapToCommentDto(comment))
+//                        .collect(Collectors.toSet())) // .toSet method collects the result in a set
                 .build();
     }
 

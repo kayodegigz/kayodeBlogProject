@@ -128,8 +128,14 @@
             <div class="card-header create-post-header">
                 <h2 class="text-center" style="color: #FFFFFF"> Create Post</h2>
             </div>
+            <div style="color: #00d747; font-weight: bold; text-align: center" th:if="${param.success}">
+                <div>
+                    Resource posted successfully! Go and view all <a th:href="@{}">posts</a>
+                </div>
+
+            </div>
             <div class="card-body">
-                <form role="form" method="post" class="createPost" th:action="@{/users/posts/newpost}" th:object="${post}">
+                <form role="form" method="post" class="createPost" th:action="@{/users/posts}" th:object="${post}">
                     <div class="mb-3">
                         <input
                                 autofocus

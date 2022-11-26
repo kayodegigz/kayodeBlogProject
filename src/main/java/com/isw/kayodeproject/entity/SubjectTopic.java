@@ -17,6 +17,6 @@ public class SubjectTopic {
     private Long id;
     private String subjectName;
 
-    @OneToMany(mappedBy = "subjectTopic")
-    private List<Post> posts;
+//    @OneToMany(mappedBy = "subjectTopic")
+//    private List<Post> posts;
 }

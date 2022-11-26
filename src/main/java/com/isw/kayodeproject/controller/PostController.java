@@ -86,14 +86,14 @@ public class PostController {
                              Model model){
         if(result.hasErrors()){
             model.addAttribute("post", postDto);
-            return "/users/blog"; // If an error occurred, show the create post page again
+            return "/users/createPost"; // If an error occurred, show the create post page again
 //            return "admin/create_post";
         }
         //  setter method for url attr of postdto
         // and getUrl is defined below
         postDto.setUrl(getUrl(postDto.getTitle()));
         postService.createPost(postDto);
-        return "redirect:/admin/posts";
+        return "redirect:/users/posts/newpost?success"; // made a mistake of redirecting to a post mapping endpoint instead of a get one
     }
 
     // handler method to handle edit post request

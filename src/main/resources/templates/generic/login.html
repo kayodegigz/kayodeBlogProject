@@ -163,7 +163,7 @@
     <div class="container">
 
         <div th:if="${param.logout}" class="form__message--success">
-            You have been successfully logged out, click <a th:href="@{/}">here</a> to go to the homepage.
+            You have been successfully logged out, click <a th:href="@{/static}">here</a> to go to the homepage.
         </div>
 
         <div th:if="${param.error}" class="form__message--error">
@@ -195,7 +195,9 @@
             <p class="form__text">
 <!--                id="linkCreateAccount" was removed from below-->
                 <a th:href="@{/register}" class="form__link" >Don't have an account? Create account</a>
+
             </p>
+            <a th:href="@{/}">Go to Home Page</a>
 
         </form>
     </div>

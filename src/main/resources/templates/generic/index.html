@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg px-0 py-4">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" th:href="@{/}">
                         QRATE.
                     </a>
 
@@ -57,43 +57,43 @@
                     <div class="collapse navbar-collapse text-center" id="navbarsExample09">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" th:href="@{/}">Home</a>
                             </li>
                             <li class="nav-item dropdown @@about">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down small"></i></a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                                    <li><a class="dropdown-item @@company" href="about.html">Our company</a></li>
-                                    <li><a class="dropdown-item @@pricing" href="pricing.html">Pricing</a></li>
+                                <a class="nav-link dropdown-toggle" href="#about-section-link" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+<!--                                <ul class="dropdown-menu" aria-labelledby="dropdown03">-->
+<!--                                    <li><a class="dropdown-item @@company" href="about.html">Our company</a></li>-->
+<!--                                    <li><a class="dropdown-item @@pricing" href="pricing.html">Pricing</a></li>-->
 
-                                    <li class="dropdown dropdown-submenu dropright">
-                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+<!--                                    <li class="dropdown dropdown-submenu dropright">-->
+<!--                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>-->
 
-                                        <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+<!--                                        <ul class="dropdown-menu" aria-labelledby="dropdown0301">-->
+<!--                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>-->
+<!--                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
                             </li>
                             <!-- <li class="nav-item @@service"><a class="nav-link" href="service.html">Services</a></li> -->
                             <!-- <li class="nav-item @@project"><a class="nav-link" href="project.html">Portfolio</a></li> -->
-                            <li class="nav-item dropdown @@blog">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="fas fa-chevron-down small"></i></a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <li><a class="dropdown-item @@blogGrid" href="blog-grid.html">Blog Grid</a></li>
-                                    <li><a class="dropdown-item @@blogSidebar" href="blog-sidebar.html">Blog with Sidebar</a></li>
-                                    <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
+<!--                            <li class="nav-item dropdown @@blog">-->
+<!--                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="fas fa-chevron-down small"></i></a>-->
+<!--                                <ul class="dropdown-menu" aria-labelledby="dropdown05">-->
+<!--&lt;!&ndash;                                    <li><a class="dropdown-item @@blogGrid" href="blog-grid.html">Subject Topics</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <li><a class="dropdown-item @@blogSidebar" href="blog-sidebar.html">Blog with Sidebar</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>&ndash;&gt;-->
 
-                                    <li class="dropdown dropdown-submenu dropleft">
-                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+<!--                                    <li class="dropdown dropdown-submenu dropleft">-->
+<!--                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>-->
 
-                                        <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+<!--&lt;!&ndash;                                        <ul class="dropdown-menu" aria-labelledby="dropdown0501">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </ul>&ndash;&gt;-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
                             <!-- <li class="nav-item @@contact"><a class="nav-link" href="contact.html">Contact</a></li> -->
                         </ul>
 
@@ -173,7 +173,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-6 offset-md-0">
                 <div class="about-item ">
-                    <span class="about-h6 h6 text-color">About</span>
+                    <span id="about-section-link" class="about-h6 h6 text-color">About</span>
                     <h2 class="mt-3 mb-4 position-relative content-title">We help you get your learning going!</h2>
                     <div class="about-content">
                         <h4 class="mb-3 position-relative">The home of authentic web resources</h4>
@@ -383,7 +383,9 @@
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="card bg-transparent border-0">
                     <div class="img-card">
-                        <img loading="lazy" src="images/laptop-code.jpg" alt="blog" class="img-fluid rounded">
+                        <a th:href="@{/}">
+                            <img loading="lazy" src="images/laptop-code.jpg" alt="blog" class="img-fluid rounded">
+                        </a>
                     </div>
 
                     <div class="card-body mt-2">
@@ -403,7 +405,9 @@
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="card border-0 bg-transparent">
                     <div class="img-card">
-                        <img loading="lazy" src="images/html-css.jpg" alt="blog" class="img-fluid rounded">
+                        <a th:href="@{/}">
+                            <img loading="lazy" src="images/html-css.jpg" alt="blog" class="img-fluid rounded">
+                        </a>
                     </div>
 
                     <div class="card-body mt-2">
@@ -425,7 +429,9 @@
                 <div class="card border-0 bg-transparent">
 
                     <div class="img-card">
-                        <img loading="lazy" src="images/blockchain.jpg" alt="blog" class="img-fluid rounded">
+                        <a th:href="@{/}">
+                            <img loading="lazy" src="images/blockchain.jpg" alt="blog" class="img-fluid rounded">
+                        </a>
                     </div>
                     <div class="card-body mt-2">
                         <div class="blog-item-meta">
@@ -434,7 +440,7 @@
                             <a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>admin</a>
                         </div>
 
-                        <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus beatae mollitia distinctio aliquam? Distinctio atque facilis cumque ipsum sed odit! Similique, quod suscipit accusamus itaque accusantium officia culpa provident dolores?</a></h3>
+                        <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white">Learn about the all new emerging blockchain technology and smart contracts. The future of online financial transactions and the internet.</a></h3>
 
                         <a href="blog-single.html" class="btn btn-small btn-solid-border btn-round-full text-white">Read More</a>
                     </div>

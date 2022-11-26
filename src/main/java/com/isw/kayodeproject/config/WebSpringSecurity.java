@@ -37,10 +37,11 @@ public class WebSpringSecurity {
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/users/**").hasAnyRole("USER", "ADMIN")
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/loginSuccess")
                         .loginProcessingUrl("/login")
                         .permitAll()
                 )
@@ -51,34 +52,6 @@ public class WebSpringSecurity {
                 );
         return http.build();
     }
-
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable() // csrf is disabled here, cos it is basically a blog, it is mostly used for banking apps
-//                .authorizeRequests()
-//                .antMatchers("/resources/static/css/**").permitAll()
-//                .antMatchers("/resources/static/images/**").permitAll()
-//                .antMatchers("/register/**").permitAll()
-//                .antMatchers("/admin/**").hasAnyRole("ADMIN", "GUEST")
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .formLogin(form -> form
-//                        .loginPage("/login")
-//                        .defaultSuccessUrl("/admin/posts")
-//                        .loginProcessingUrl("/login")
-//                        .permitAll()
-//                )
-//                .logout(
-//                        logout -> logout
-//                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                                .permitAll()
-//                );
-//        return http.build();
-//    }
-
-
-
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {

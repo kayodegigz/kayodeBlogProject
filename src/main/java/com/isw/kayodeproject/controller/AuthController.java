@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.text.ParseException;
-import java.util.Optional;
 
 @Controller
 public class AuthController {
@@ -29,9 +28,13 @@ public class AuthController {
 
 
 //        return "login";
-        return "/users/login";
+        return "/generic/login";
     }
 
+    @GetMapping("/loginSuccess")
+    public String loginSuccess() {
+        return "/users/index";
+    }
 
     @GetMapping("/users/")
     public String loginSuccess(Model model) {
@@ -43,7 +46,7 @@ public class AuthController {
         // this object contains the registration form data
         RegistrationDto user = new RegistrationDto();
         model.addAttribute("user", user);
-        return "/users/register";
+        return "/generic/register";
 //        return "register";
     }
 
@@ -99,7 +102,7 @@ public class AuthController {
         // if there are form related validation errors, they are handled here
         if(result.hasErrors()) {
             model.addAttribute("user", user);
-            return "/users/register";
+            return "/generic/register";
 
 //            return "register";
         }
