@@ -34,6 +34,19 @@
 <!-- Table for posts start -->
 <div class="table-container">
     <h2>Manage Posts</small></h2>
+    <div class="row">
+        <div style="text-align: center; margin-left: 450px">
+            <div class="form-group" >
+                <form class="form-inline" th:action="@{/admin/posts/search}">
+                    <div class="input-group">
+                        <input type="text" placeholder="Search posts" class=" search-input" name="query" />
+                        <span style="margin-left: 50px">
+                            <button class="btn search-btn" type="submit" style="background-color: rgba(255, 140, 0, 0.7); border-radius: 6px"> Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
     <ul class="responsive-table">
         <li class="table-header">
             <div class="col col-1">Post Title</div>
@@ -47,7 +60,7 @@
             <div class="col col-2" data-label="Customer Name" >John Doe</div>
             <div class="col col-3" data-label="Amount" >lorem ipsum</div>
             <div class="col col-4" data-label="Payment Status" >Pending</div>
-            <div class="col col-5" data-label="Payment Status" >
+            <div class="col col-5"  data-label="Payment Status" >
                 <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
                 <button class="btn btn-delete btn-round-full .btn-navbar">DELETE POST</button>
 
