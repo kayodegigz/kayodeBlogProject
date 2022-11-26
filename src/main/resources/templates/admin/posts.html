@@ -60,7 +60,7 @@
             <div class="col col-3" data-label="Amount" th:text="${post.shortDescription}">lorem ipsum</div>
             <div class="col col-4" data-label="Payment Status" th:text="${post.createdOn}">Pending</div>
             <div class="col col-5" data-label="Payment Status" >
-                <a>
+                <a th:href="@{/users/posts/{postUrl}/view(postUrl=${post.url})}">
                     <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
                 </a>
                 <a th:href="@{/admin/posts/{postId}/delete(postId=${post.id})}">

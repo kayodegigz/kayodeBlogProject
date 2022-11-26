@@ -138,7 +138,7 @@ public class PostController {
                            Model model){
         PostDto postDto = postService.findPostByUrl(postUrl);
         model.addAttribute("post", postDto);
-        return "/users/view_post";
+        return "users/viewPost";
 //        return "admin/view_post";
 
     }

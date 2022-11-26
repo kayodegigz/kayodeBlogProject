@@ -30,11 +30,41 @@ body {
   text-align: center;
 }
 
+.welcome-message-new {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .welcome-message {
   font-size: 4rem;
   font-weight: 600;
   color: var(--color-primary);
   padding-left: 250px;
+}
+
+.welcome-message-child {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -687,13 +717,19 @@ ul.dropdown-menu li {
 }
 
 .slider {
-  /* height: 500px; */
-  margin-top: -120px;
+   height: 500px;
+  /*margin-top: -120px;*/
   background-size: cover;
   background: url("../images/library_bg_img.jpg") no-repeat 10% 0%;
-  padding: 210px 0;
+  /*padding: 210px 0;*/
   position: relative;
 }
+
+.slider-overlay{
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .slider {
     padding: 150px 0;

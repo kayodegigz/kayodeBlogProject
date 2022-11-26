@@ -34,7 +34,7 @@ public class WebSpringSecurity {
                 .authorizeRequests()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/images/**").permitAll()
-                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/plugins/**").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .antMatchers("/users/**").hasAnyRole("USER", "ADMIN")
