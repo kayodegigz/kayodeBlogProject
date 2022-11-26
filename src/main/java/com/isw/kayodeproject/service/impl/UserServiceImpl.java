@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -65,10 +66,17 @@ public class UserServiceImpl implements UserService {
 //        user.setDob(registrationDto.getDob());
         user.setOccupation(registrationDto.getOccupation());
 
+
+        // to get current date
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
+        user.setDateJoined(date);
+
         // use spring security to encrypt the password
 
 
-        Role role = roleRepository.findByName("ROLE_USER");
+        Role role = roleRepository.findByName("ROLE_ADMIN");
 
         System.out.println("The role object is " + role.toString());
         user.setRoles(Arrays.asList(role));

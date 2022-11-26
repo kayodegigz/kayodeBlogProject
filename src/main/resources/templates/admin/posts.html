@@ -51,16 +51,21 @@
                 <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
                 <button class="btn btn-delete btn-round-full .btn-navbar">DELETE POST</button>
 
+
             </div>
         </li>
         <li class="table-row" th:each="post : ${posts}">
             <div class="col col-1" data-label="Job Id" th:text="${post.title}">42235</div>
-            <div class="col col-2" data-label="Customer Name" th:text="${post.createdBy}">John Doe</div>
+            <div class="col col-2" data-label="Customer Name" th:text="${post.title}">John Doe</div>
             <div class="col col-3" data-label="Amount" th:text="${post.shortDescription}">lorem ipsum</div>
             <div class="col col-4" data-label="Payment Status" th:text="${post.createdOn}">Pending</div>
-            <div class="col col-5" data-label="Payment Status" th:text="${post.shortDescription}">
-                <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
-                <button class="btn btn-delete btn-round-full .btn-navbar">DELETE POST</button>
+            <div class="col col-5" data-label="Payment Status" >
+                <a>
+                    <button class="btn btn-view btn-signup btn-round-full .btn-navbar">VIEW</button>
+                </a>
+                <a th:href="@{/admin/posts/{postId}/delete(postId=${post.id})}">
+                    <button  class="btn btn-delete btn-round-full .btn-navbar">DELETE POST</button>
+                </a>
 
             </div>
         </li>
