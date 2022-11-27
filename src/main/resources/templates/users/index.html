@@ -33,7 +33,6 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
     <!--Favicon-->
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
 </head>
 
@@ -58,10 +57,10 @@
                     <div class="collapse navbar-collapse text-center" id="navbarsExample09">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" th:href="@{/}">Home</a>
                             </li>
                             <li class="nav-item dropdown @@about">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" th:href="@{#about-section}" >
                                     About
 <!--                                    <i class="fas fa-chevron-down small"></i>-->
 
@@ -80,6 +79,12 @@
 <!--                                    </li>-->
 <!--                                </ul>-->
                             </li>
+
+                            <a class="nav-link dropdown-toggle" th:href="@{/blog}" >
+                                Blog
+                                <!--                                    <i class="fas fa-chevron-down small"></i>-->
+
+                            </a>
                             <!-- <li class="nav-item @@service"><a class="nav-link" href="service.html">Services</a></li> -->
                             <!-- <li class="nav-item @@project"><a class="nav-link" href="project.html">Portfolio</a></li> -->
                             <li class="nav-item dropdown @@blog">
@@ -178,7 +183,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-6 offset-md-0">
                 <div class="about-item ">
-                    <span class="about-h6 h6 text-color">About</span>
+                    <span id="about-section" class="about-h6 h6 text-color">About</span>
                     <h2 class="mt-3 mb-4 position-relative content-title">We help you get your learning going!</h2>
                     <div class="about-content">
                         <h4 class="mb-3 position-relative">The home of authentic web resources</h4>
@@ -501,8 +506,8 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
                 <div class="widget">
-                    <h4 class="text-capitalize mb-4">Subscribe Us</h4>
-                    <p>Subscribe to get latest news article and resources </p>
+<!--                    <h4 class="text-capitalize mb-4">Subscribe Us</h4>-->
+<!--                    <p>Subscribe to get latest news article and resources </p>-->
 
                     <form action="#" class="sub-form">
                         <input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">

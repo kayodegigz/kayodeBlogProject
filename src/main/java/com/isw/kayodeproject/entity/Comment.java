@@ -20,8 +20,6 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String title;
     @Lob
     private String content;
     @CreationTimestamp
@@ -35,7 +33,7 @@ public class Comment {
     private Post post; //postId??? Why not?
 
     @ManyToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User user;
 
     private Long upVotes;

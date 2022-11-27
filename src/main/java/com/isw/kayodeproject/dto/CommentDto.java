@@ -15,10 +15,8 @@ import java.time.LocalDateTime;
 @Builder
 public class CommentDto {
     private Long id;
-    @NotEmpty
-    private String title;
 
-    @NotEmpty
+    @NotEmpty(message = "Type in a comment before you submit")
     private String content;
 //    @NotEmpty(message = "Email should not be empty or null")
 //    @Email

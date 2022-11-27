@@ -34,14 +34,15 @@ public class CommentController {
                                 Model model){
 
         PostDto postDto = postService.findPostByUrl(postUrl);
-        if(result.hasErrors()){ // result id a bindingRes object, it has a predefined has errors method
+        if(result.hasErrors()){ // result id a bindingRes object, it has a predefined hasErrors method
             model.addAttribute("post", postDto);
             model.addAttribute("comment", commentDto);
-            return "/admin/posts";
+            return "/users/viewPost";
 //            return "blog/blog_post";
         }
 
         commentService.createComment(postUrl, commentDto);
-        return "redirect:/post/" + postUrl; //passing the post url dynamically
+        return "redirect:/users/posts/" + postUrl + "/view";
+//        return "redirect:/post/" + postUrl; //passing the post url dynamically, so it can redirect to the particular page
     }
 }

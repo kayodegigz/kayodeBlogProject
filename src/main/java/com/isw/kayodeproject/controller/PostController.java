@@ -137,7 +137,9 @@ public class PostController {
     public String viewPost(@PathVariable("postUrl") String postUrl,
                            Model model){
         PostDto postDto = postService.findPostByUrl(postUrl);
+        CommentDto commentDto = new CommentDto();
         model.addAttribute("post", postDto);
+        model.addAttribute("comment", commentDto);
         return "users/viewPost";
 //        return "admin/view_post";
 

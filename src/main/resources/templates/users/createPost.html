@@ -130,7 +130,7 @@
             </div>
             <div style="color: #00d747; font-weight: bold; text-align: center" th:if="${param.success}">
                 <div>
-                    Resource posted successfully! Go and view all <a th:href="@{}">posts</a>
+                    Resource posted successfully! Go and view all <a th:href="@{/blog}">posts</a>
                 </div>
 
             </div>
@@ -157,7 +157,7 @@
                                 required
                                 class="form-control form__input"
                                 id="shortDescription"
-                                placeholder="Enter short description"
+                                placeholder="Enter a short description of the resource"
                                 rows="3"
                                 name="shortDescription"
                                 th:field="*{shortDescription}"
@@ -172,7 +172,7 @@
                         <textarea
                                 class="form-control form__input"
                                 id="content"
-                                placeholder="A description of the resource should be here"
+                                placeholder="Post the resource her(links)"
                                 rows="12"
                                 name="content"
                                 th:field="*{content}"

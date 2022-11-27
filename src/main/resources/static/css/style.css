@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap");
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1753,7 +1754,10 @@ h3.quote::before {
   border-radius: var(--border-radius);
 }
 
-
+.comment-submit:hover {
+  background-color: rgb(255, 140, 0);
+  transform: scale(1.08);
+}
 
 .search-btn:hover {
   background-color: var(--color-primary-dark);

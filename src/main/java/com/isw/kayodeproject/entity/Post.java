@@ -37,6 +37,13 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
+        //mappedBy value is in the comment entity. This is what maps the relationships
+    // Cascade is used in the sense that whatever happens in the parent entity should also happen
+    // to all other entities dependent on it, so if the post is deleted, all the comments set
+    // under it should be deleted too
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private Set<Comment> comments = new HashSet<>();
+
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
 //    //Implement uuid here
@@ -67,10 +74,5 @@ public class Post {
 //    private SubjectTopic subjectTopic;
 //
 //
-//    //mappedBy value is in the comment entity. This is what maps the relationships
-//    // Cascade is used in the sense that whatever happens in this entity should also happen
-//    // to all other entities dependent on it, so if this post is deleted, all the comments
-//    // under it should be deleted too
-//    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-//    private Set<Comment> comments = new HashSet<>();
+
 }
