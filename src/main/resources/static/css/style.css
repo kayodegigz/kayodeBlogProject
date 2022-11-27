@@ -1668,6 +1668,42 @@ h3.quote::before {
   border-left: solid 1px white;
 }
 
+.responsive-table-comments .col-1 {
+  /*max-width: 30%;*/
+  flex-basis: 30%;
+  /*max-width: 200px;*/
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  /*max-width: 1px;*/
+}
+
+.responsive-table-comments .col-2 {
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.responsive-table-comments .col-3 {
+  flex-basis: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.responsive-table-comments .col-4 {
+  flex-basis: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.responsive-table-comments .col-5 {
+  flex-basis: 15%;
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+}
+
 /*.responsive-table .col-1 {*/
 /*  flex-basis: 50%;*/
 /*  display: flex;*/
