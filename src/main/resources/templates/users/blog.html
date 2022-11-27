@@ -1,10 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <!-- ** Basic Page Needs ** -->
+    <meta charset="utf-8">
+    <title>QRATE</title>
+
+    <!-- ** Mobile Specific Metas ** -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="QRATE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="kayode Template">
+
+    <!-- theme meta -->
+    <meta name="theme-name" content="megakit" />
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- Icon Font Css -->
+    <link rel="stylesheet" href="plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+
 </head>
 <body>
+<header>
+    <div id="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg px-0 py-4">
+                        <a class="navbar-brand" href="index.html">
+                            QRATE.
+                        </a>
+
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                                aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fa fa-bars"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-end text-center" id="navbarsExample09">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown @@about">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        About
+                                        <!--                                    <i class="fas fa-chevron-down small"></i>-->
+
+                                    </a>
+                                    <!--                                <ul class="dropdown-menu" aria-labelledby="dropdown03">-->
+                                    <!--                                    <li><a class="dropdown-item @@company" href="about.html">Our company</a></li>-->
+                                    <!--                                    <li><a class="dropdown-item @@pricing" href="pricing.html">Pricing</a></li>-->
+
+                                    <!--                                    <li class="dropdown dropdown-submenu dropright">-->
+                                    <!--                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>-->
+
+                                    <!--&lt;!&ndash;                                        <ul class="dropdown-menu" aria-labelledby="dropdown0301">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;                                        </ul>&ndash;&gt;-->
+                                    <!--                                    </li>-->
+                                    <!--                                </ul>-->
+                                </li>
+                                <!-- <li class="nav-item @@service"><a class="nav-link" href="service.html">Services</a></li> -->
+                                <!-- <li class="nav-item @@project"><a class="nav-link" href="project.html">Portfolio</a></li> -->
+                                <li class="nav-item dropdown @@blog">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subject Topics <i class="fas fa-chevron-down small"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                                        <li><a class="dropdown-item @@blogGrid" href="blog-grid.html">Software Engineering</a></li>
+                                        <li><a class="dropdown-item @@blogSidebar" href="blog-sidebar.html">Blockchain Technology</a></li>
+                                        <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Design</a></li>
+
+                                        <!--                                    <li class="dropdown dropdown-submenu dropleft">-->
+                                        <!--                                        <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>-->
+
+                                        <!--                                        <ul class="dropdown-menu" aria-labelledby="dropdown0501">-->
+                                        <!--                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>-->
+                                        <!--                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>-->
+                                        <!--                                        </ul>-->
+                                        <!--                                    </li>-->
+                                    </ul>
+                                </li>
+                                <!-- <li class="nav-item @@contact"><a class="nav-link" href="contact.html">Contact</a></li> -->
+                            </ul>
+
+                            <div class="my-2 my-md-0 ml-lg-4 text-center">
+                                <a th:href="@{/logout}" class="btn-navbar btn-signup btn btn-solid-border btn-round-full">Log Out</a>
+                                <a th:href="@{/users/posts/newpost}" class="btn-navbar btn-login btn btn-solid-border btn-round-full">New Post</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Close -->
+
+<!-- Slider Start -->
+<section class="slider position-relative">
+    <div class="position-absolute d-flex align-items-center w-100 h-100 slider-overlay">
+        <div class="container">
+            <!--            <div class="row">-->
+            <!--                <div class="col-md-10">-->
+            <div class="block">
+                <div class="welcome-message-new text-capitalize q-style" >
+                    <span > Blog</span>
+                </div>
+            </div>
+
+            <!-- <h1 class="animated fadeInUp mb-5">Covering<br>Several <br>Topics</h1> -->
+            <!-- <a href="#"  class="btn-slider btn btn-main animated fadeInUp btn-round-full" aria-label="Get started">Check It Out<i class="btn-icon fa fa-angle-right ml-2"></i></a> -->
+
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+    </div>
+
+</section>
+
+<section>
+
+    <div style="text-align: center; margin-left: 450px; margin-top: 50px">
+        <div class="form-group" >
+            <form class="form-inline" th:action="@{/blog/search}">
+                <div class="input-group">
+                    <input type="text" placeholder="Search" class=" search-input" name="query" style="border-radius: 5px"/>
+                    <span style="margin-left: 50px">
+                            <button class="btn search-btn" type="submit" style="background-color: rgba(255, 140, 0, 0.7); border-radius: 6px"> Search</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" style="border: solid 3px #FF8C00 ; border-top: none; border-bottom: none; margin-top: 3rem">
+            <div th:each = "post: ${postsResponse}">
+                <div class="blog-row">
+                    <div class="post-title"></div>
+
+                    FOR DATE
+                    <div>
+                        <strong th:text="${#temporals.format(post.createdOn, 'dd MMMM yyyy')}">
+
+                        </strong>
+                    </div>
+
+
+    <!--                FOR SHORT DESCRIPTION-->
+
+                    <div class="card-body">
+                        <span th:utext="${post.shortDescription}"> </span>
+                        <a th:href="@{/users/posts/{postUrl}/view(postUrl=${post.url})}">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<footer class="footer section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Company</h4>
+
+                    <ul class="list-unstyled footer-menu lh-35">
+                        <li><a href="about.html">Terms & Conditions</a></li>
+                        <!-- <li><a href="about.html">Privacy Policy</a></li> -->
+                        <li><a href="cobtact.html">Support</a></li>
+                        <li><a href="cobtact.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Quick Links</h4>
+
+                    <ul class="list-unstyled footer-menu lh-35">
+                        <li><a href="about.html">About</a></li>
+                        <!-- <li><a href="service.html">Services</a></li> -->
+                        <!-- <li><a href="blog-grid.html">Blogs</a></li> -->
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+                <div class="widget">
+                    <h4 class="text-capitalize mb-4">Subscribe Us</h4>
+                    <p>Subscribe to get latest news article and resources </p>
+
+                    <form action="#" class="sub-form">
+                        <input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">
+                        <a href="#" class="btn btn-main btn-small">subscribe</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-3 col-sm-6">
+              <div class="widget">
+                <div class="logo mb-4">
+                  <h3>Mega<span>kit.</span></h3>
+                </div>
+                <h6><a href="mailto:support@gmail.com">Support@megakit.com</a></h6>
+                <a href="tel:+23-345-67890"><span class="text-color h4">+23-456-6588</span></a>
+              </div>
+            </div> -->
+        </div>
+
+        <div class="footer-btm pt-4">
+            <div class="row">
+                <div class="col-lg-6 text-left text-lg-right">
+                    <!-- <ul class="list-inline footer-socials">
+                      <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fab fa-facebook-f mr-2"></i>Facebook</a></li>
+                      <li class="list-inline-item"><a href="https://twitter.com/"><i class="fab fa-twitter mr-2"></i>Twitter</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+    <span class="icon fa fa-angle-up"></span>
+</div>
+
+<!--
+Essential Scripts
+=====================================-->
+<!-- Main jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4.3.1 -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!--  Magnific Popup-->
+<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Slick Slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- Counterup -->
+<script src="plugins/counterup/jquery.waypoints.min.js"></script>
+<script src="plugins/counterup/jquery.counterup.min.js"></script>
+
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+<script src="plugins/google-map/map.js" defer></script>
+
+<script src="js/script.js"></script>
 
 </body>
+
 </html>

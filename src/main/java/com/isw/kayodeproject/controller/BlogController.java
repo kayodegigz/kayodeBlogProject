@@ -27,7 +27,7 @@ public class BlogController {
     public String viewBlogPosts(Model model){
         List<PostDto> postsResponse = postService.findAllPosts();
         model.addAttribute("postsResponse", postsResponse);
-        return "/admin/posts";
+        return "/users/blog";
 //        return "blog/view_posts";
     }
 
@@ -46,13 +46,13 @@ public class BlogController {
 
     // handler method to handle blog post search request
     // http://localhost:8080/page/search?query=java
-    @GetMapping("/page/search")
+    @GetMapping("/blog/search")
     public String searchPosts(@RequestParam(value = "query") String query,
                               Model model){
         //@RequestParam is used to get the query string from the request body
         List<PostDto> postsResponse = postService.searchPosts(query);
         model.addAttribute("postsResponse", postsResponse);
-        return "/admin/posts";
+        return "/users/blog";
 //        return "blog/view_posts";
     }
 }
