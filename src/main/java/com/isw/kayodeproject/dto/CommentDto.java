@@ -28,5 +28,5 @@ public class CommentDto {
     private Post post; //postId??? Why not?
     private Long upVotes;
     private Long downVotes;
-    private User user;
+    private User created_by;
 }

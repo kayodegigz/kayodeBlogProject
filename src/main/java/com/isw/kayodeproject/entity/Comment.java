@@ -33,6 +33,10 @@ public class Comment {
     private Post post; //postId??? Why not?
 
     @ManyToOne
+    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = false)
+    private User createdBy;  // how will I map this to author?
+
+    @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User user;
 
