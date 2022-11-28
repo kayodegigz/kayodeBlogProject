@@ -8,6 +8,7 @@ import com.isw.kayodeproject.repository.PostRepository;
 import com.isw.kayodeproject.repository.UserRepository;
 import com.isw.kayodeproject.service.PostService;
 //import com.isw.kayodeproject.util.SecurityUtils;
+import com.isw.kayodeproject.util.SecurityUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,11 +36,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> findPostsByUser() {
-//        String email = SecurityUtils.getCurrentUser().getUsername();
+        String email = SecurityUtils.getCurrentUser().getUsername(); // to get current logged in user email
 
 
         // CHANGE THIS!
-        String email = "";
+//        String email = "";
         User createdBy = userRepository.findByEmail(email);
         Long userId = createdBy.getId();
         List<Post> posts = postRepository.findPostsByUser(userId);
@@ -50,16 +51,13 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void createPost(PostDto postDto) {
-//        String email = SecurityUtils.getCurrentUser().getUsername();
+        String email = SecurityUtils.getCurrentUser().getUsername();
 
 
         //CHANGE THIS
-        String email = "";
         User user = userRepository.findByEmail(email);
-//        String id = idGenerator.createId();
-//        postDto.setId(id);
         Post post = PostMapper.mapToPost(postDto);
-//        post.setCreatedBy(user);
+        post.setCreatedBy(user);
         postRepository.save(post);
     }
 
@@ -103,6 +101,12 @@ public class PostServiceImpl implements PostService {
         return posts.stream()
                 .map(PostMapper::mapToPostDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void increaseLikes(String postUrl) {
+        Post post = postRepository.findByUrl(postUrl).get();
+        post.setUpVotes(post.getUpVotes() + 1);
     }
 
 }

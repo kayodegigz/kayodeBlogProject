@@ -28,6 +28,7 @@ public class User {
     private String password;
 
     // mapped by refers to the name of the instance in the many to one end
+    // cascade is usually in the parent entity
 //    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
 //    private List<Post> posts;
 

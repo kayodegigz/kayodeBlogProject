@@ -5,6 +5,7 @@ import com.isw.kayodeproject.dto.PostDto;
 import com.isw.kayodeproject.service.CommentService;
 import com.isw.kayodeproject.service.PostService;
 //import com.isw.kayodeproject.util.SecurityUtills;
+import com.isw.kayodeproject.util.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -45,6 +46,13 @@ public class PostController {
         return "/admin/posts";
     }
 
+
+    @GetMapping("/users/myPosts")
+    public String myPosts(Model model){
+        List<PostDto> posts = postService.findPostsByUser();
+        model.addAttribute("posts", posts);
+        return "/users/myPosts";
+    }
 
 
     // handler method to handle list comments request
@@ -162,5 +170,11 @@ public class PostController {
         String url = title.replaceAll("\\s+", "-");
         url = url.replaceAll("[^A-Za-z0-9]", "-");
         return url;
+    }
+
+    @PostMapping("/post/{postUrl}/increaseLike")
+    public String increaseLikes(@PathVariable("postUrl") String postUrl) {
+        postService.increaseLikes(postUrl);
+        return "redirect:/blog";
     }
 }

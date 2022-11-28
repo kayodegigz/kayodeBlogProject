@@ -69,7 +69,7 @@
         </li>
         <li class="table-row" th:each="post : ${posts}">
             <div class="col col-1" data-label="Job Id" th:text="${post.title}">42235</div>
-            <div class="col col-2" data-label="Customer Name" th:text="${post.title}">John Doe</div>
+            <div class="col col-2" data-label="Customer Name" th:text="${post.created_by.name}">John Doe</div>
             <div class="col col-3" data-label="Amount" th:text="${post.shortDescription}">lorem ipsum</div>
             <div class="col col-4" data-label="Payment Status" th:text="${#temporals.format(post.createdOn, 'dd MMMM yyyy')}">Pending</div>
             <div class="col col-5" data-label="Payment Status" >

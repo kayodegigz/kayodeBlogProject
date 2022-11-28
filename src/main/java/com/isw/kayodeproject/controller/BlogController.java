@@ -55,4 +55,14 @@ public class BlogController {
         return "/users/blog";
 //        return "blog/view_posts";
     }
+
+    @GetMapping("/myPosts/search")
+    public String searchMyPosts(@RequestParam(value = "query") String query,
+                              Model model){
+        //@RequestParam is used to get the query string from the request body
+        List<PostDto> postsResponse = postService.searchPosts(query);
+        model.addAttribute("postsResponse", postsResponse);
+        return "/users/myPosts";
+//        return "blog/view_posts";
+    }
 }

@@ -37,6 +37,16 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
+    @Column(columnDefinition = "integer default 0")
+    private Long upVotes;
+
+    @Column(columnDefinition = "integer default 0")
+    private Long downVotes;
+
+    @ManyToOne
+    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = false)
+    private User createdBy;  // how will I map this to author?
+
         //mappedBy value is in the comment entity. This is what maps the relationships
     // Cascade is used in the sense that whatever happens in the parent entity should also happen
     // to all other entities dependent on it, so if the post is deleted, all the comments set
@@ -65,9 +75,6 @@ public class Post {
 //    @UpdateTimestamp
 //    private LocalDateTime updatedOn;
 //
-//    @ManyToOne
-//    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = false)
-//    private User createdBy;  // how will I map this to author?
 //
 //    @ManyToOne
 //    @JoinColumn(name = "posts", referencedColumnName = "id", nullable = false)

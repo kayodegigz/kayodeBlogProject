@@ -37,6 +37,29 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+
+    <style>
+        #voters button{
+            cursor: pointer;
+            outline: 0;
+            color: #AAA;
+
+        }
+
+        #voters .btn:focus {
+            outline: none;
+        }
+
+        #voters #green{
+            color: green;
+        }
+
+        #voters #red{
+            color: red;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -157,7 +180,6 @@
                 <div class="blog-row">
                     <div class="post-title"></div>
 
-                    FOR DATE
                     <div>
                         <strong th:text="${#temporals.format(post.createdOn, 'dd MMMM yyyy')}">
 
@@ -171,6 +193,16 @@
                         <span th:utext="${post.shortDescription}"> </span>
                         <a th:href="@{/users/posts/{postUrl}/view(postUrl=${post.url})}" style="color: rgba(255, 140, 0, 0.7)">Read more...</a>
                     </div>
+
+                    <div id="voters">
+                        <a th:href="@{/post/{postUrl}/increaseLike(postUrl = ${post.url})}">
+                            <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+                        </a>
+                        <a>
+                            <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -261,6 +293,31 @@ Essential Scripts
 <!-- Counterup -->
 <script src="plugins/counterup/jquery.waypoints.min.js"></script>
 <script src="plugins/counterup/jquery.counterup.min.js"></script>
+
+<script>
+    var btn1 = document.querySelector('#green');
+    var btn2 = document.querySelector('#red');
+
+
+    btn1.addEventListener('click', function() {
+
+
+        if (btn2.classList.contains('red')) {
+            btn2.classList.remove('red');
+        }
+        this.classList.toggle('green');
+
+    });
+
+    btn2.addEventListener('click', function() {
+
+        if (btn1.classList.contains('green')) {
+            btn1.classList.remove('green');
+        }
+        this.classList.toggle('red');
+
+    });
+</script>
 
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>

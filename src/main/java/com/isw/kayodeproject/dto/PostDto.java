@@ -27,7 +27,12 @@ public class PostDto {
     private String shortDescription;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+    private User created_by;
     private Set<CommentDto> comments; //set of commentDto objects to be displayed
+
+    private Long upVotes;
+
+    private Long downVotes;
 
 
 
