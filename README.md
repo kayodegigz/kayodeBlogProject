@@ -122,10 +122,34 @@ git clone https://github.com/kayodegigz/kayodeBlogProject
 
 #### After creating a post, you can view all the posts made by the logged in user by clicking on "My Posts"
 
+#### The post created will also show under the "blog" section where all posts are displayed.
+![image](https://user-images.githubusercontent.com/47942099/207169329-f2b7ff51-c708-4d03-ba84-bee7ea17eb38.png)
+
+
 #### When a post is being viewed, a section is also provided for making comments.
 ![image](https://user-images.githubusercontent.com/47942099/207167694-ef7b1e93-4b66-4dda-a04e-a216085b6264.png)
 
 #### Clicking on the logout button in the navbar automatically ends the session of the logged in user and logs them out.
+
+## ADMIN SECTION
+As stated earlier, the admin can carry out 3 main functions:
+* Manage Users
+* Manage Posts
+* Manage Comments
+
+### ADMIN USERS DASHBOARD
+![image](https://user-images.githubusercontent.com/47942099/207169723-15b764ed-6752-4a3e-a09c-be2a1e0a60d2.png)
+Here the admin can remove a user from the site as required
+
+### ADMIN POSTS DASHBOARD
+![image](https://user-images.githubusercontent.com/47942099/207169954-f2ca4b43-ecb7-483a-8ccb-5f2849cb6fdc.png)
+Here the admin can view and remove a post from the site as required
+
+### ADMIN COMMENTS DASHBOARD
+![image](https://user-images.githubusercontent.com/47942099/207170170-2ac8ae93-f670-422f-bb7f-9d50774ede71.png)
+Here the admin can delete comments from the site as required
+
+
 
 
 ## 0x04 Testing
