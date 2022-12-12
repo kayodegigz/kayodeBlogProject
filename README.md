@@ -49,9 +49,6 @@ All fields are validated from the frontend and backend for null values, too shor
 ![image](https://user-images.githubusercontent.com/47942099/207155649-f89c69b8-1204-421b-b7e4-b11f7cc5cfff.png)
 The login fields are also validated and authenticated with spring security. If the credentials are not in the DB, authentication fails.
 
-## Storage
-
-All the classes are handled by the `Storage` engine in the `FileStorage` Class, which stores the objects in a local file.
 
 ## 0x02 Tools_Used
 
