@@ -88,9 +88,9 @@ All the development and testing was run over a Windows 11 operating system using
 #### First, let's go over the basic requirements needed to run this web application:
 * A modern browser(preferably Google Chrome)
 * IntelliJ IDEA(preferred) or any IDE capable of running SpringBoot applications.
-* MySQL.
+* MySQL as the DBMS.
 * A database named "qrate" should be created in the DBMS of choice.
-NOTE: MSSQL can also be used, the configuration settings for MSSQL are commented out in the application.properties file(lines 14 - 20), you can uncomment and tweak the credentials to match yours.
+*NOTE: MSSQL can also be used as the DBMS of choice, the configuration settings for MSSQL are commented out in the application.properties file(lines 14 - 20), you can uncomment and tweak the credentials to match yours.
 
 #### Next, the repository should be cloned
 ```bash
